@@ -184,14 +184,11 @@ public class SseServerRuleServiceImpl implements ISseServerRuleService {
                 String orderTable = sseServerInfo.getPlatformId() + "_" + sseServerInfo.getEnvId() + "_" + ssePbuConfigs.get(ssePbuConfigsCount).getPbuId();
                 ssePbuConfigsCount++;
                 try {
-                    processOrderTable(orderTable, sseServerDistributionRecord.getRuleId(), sseServerInfo, sseServerDistributionRecord.getPkId());
-                } catch (IOException e) {
-                    throw new RuntimeException(e);
-                } catch (SQLException e) {
+                    Callable<Void> task = () -> processOrderTable(orderTable, sseServerDistributionRecord.getRuleId(), sseServerInfo, sseServerDistributionRecord.getPkId());
+                    futures.add(executorService.submit(task));
+                }  catch (Exception e) {
                     throw new RuntimeException(e);
                 }
-                Callable<Void> task = () -> processOrderTable(orderTable, sseServerDistributionRecord.getRuleId(), sseServerInfo, sseServerDistributionRecord.getPkId());
-                futures.add(executorService.submit(task));
             }
         }
 

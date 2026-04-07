@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.shenmei.data.sse.mapper.SsePbuConfigMapper">
+
+    <resultMap type="SsePbuConfig" id="SsePbuConfigResult">
+        <result property="pkId"    column="pk_id"    />
+        <result property="pbuId"    column="pbu_id"    />
+        <result property="isUsed"    column="is_used"    />
+        <result property="isLoginpbu"    column="is_loginPbu"    />
+        <result property="isBizpbu"    column="is_bizPbu"    />
+        <result property="belongtoLoginpbu"    column="belongTo_loginPbu"    />
+        <result property="ruleId"    column="rule_Id"    />
+        <result property="ruleName"    column="rule_Name"    />
+        <result property="accountNumber"    column="account_number"    />
+        <result property="accountNumberused"    column="account_numberUsed"    />
+    </resultMap>
+
+    <sql id="selectSsePbuConfigVo">
+        select pk_id, pbu_id, is_used, is_loginPbu, is_bizPbu, belongTo_loginPbu, rule_Id, rule_Name, account_number, account_numberUsed from sse_pbu_config
+    </sql>
+
+    <sql id="selectLoginPbuList">
+        select pbuid from sse_pbu_config
+    </sql>
+
+    <select id="selectSsePbuConfigList" parameterType="SsePbuConfig" resultMap="SsePbuConfigResult">
+        <include refid="selectSsePbuConfigVo"/>
+        <where>
+            <if test="pbuId != null  and pbuId != ''"> and pbu_id = #{pbuId}</if>
+            <if test="isUsed != null  and isUsed != ''"> and is_used = #{isUsed}</if>
+            <if test="isLoginpbu != null  and isLoginpbu != ''"> and is_loginPbu = #{isLoginpbu}</if>
+            <if test="isBizpbu != null  and isBizpbu != ''"> and is_bizPbu = #{isBizpbu}</if>
+            <if test="belongtoLoginpbu != null  and belongtoLoginpbu != ''"> and belongTo_loginPbu = #{belongtoLoginpbu}</if>
+            <if test="ruleId != null "> and rule_Id = #{ruleId}</if>
+            <if test="ruleName != null "> and rule_Name like concat('%', #{ruleName}, '%')</if>
+            <if test="accountNumber != null "> and account_number &gt;= #{accountNumber}</if>
+            <if test="accountNumberused != null "> and account_numberUsed = #{accountNumberused}</if>
+        </where>
+    </select>
+
+    <select id="selectSsePbuConfigByPkId" parameterType="Long" resultMap="SsePbuConfigResult">
+        <include refid="selectSsePbuConfigVo"/>
+        where pk_id = #{pkId}
+    </select>
+
+    <insert id="insertSsePbuConfig" parameterType="SsePbuConfig" useGeneratedKeys="true" keyProperty="pkId">
+        insert into sse_pbu_config
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="pbuId != null">pbu_id,</if>
+            <if test="isUsed != null">is_used,</if>
+            <if test="isLoginpbu != null">is_loginPbu,</if>
+            <if test="isBizpbu != null">is_bizPbu,</if>
+            <if test="belongtoLoginpbu != null">belongTo_loginPbu,</if>
+            <if test="ruleId != null">rule_Id,</if>
+            <if test="ruleName != null">rule_Name,</if>
+            <if test="accountNumber != null">account_number,</if>
+            <if test="accountNumberused != null">account_numberUsed,</if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="pbuId != null">#{pbuId},</if>
+            <if test="isUsed != null">#{isUsed},</if>
+            <if test="isLoginpbu != null">#{isLoginpbu},</if>
+            <if test="isBizpbu != null">#{isBizpbu},</if>
+            <if test="belongtoLoginpbu != null">#{belongtoLoginpbu},</if>
+            <if test="ruleId != null">#{ruleId},</if>
+            <if test="ruleName != null">#{ruleName},</if>
+            <if test="accountNumber != null">#{accountNumber},</if>
+            <if test="accountNumberused != null">#{accountNumberused},</if>
+        </trim>
+    </insert>
+
+    <update id="updateSsePbuConfig" parameterType="SsePbuConfig">
+        update sse_pbu_config
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="pbuId != null">pbu_id = #{pbuId},</if>
+            <if test="isUsed != null">is_used = #{isUsed},</if>
+            <if test="isLoginpbu != null">is_loginPbu = #{isLoginpbu},</if>
+            <if test="isBizpbu != null">is_bizPbu = #{isBizpbu},</if>
+            <if test="belongtoLoginpbu != null">belongTo_loginPbu = #{belongtoLoginpbu},</if>
+            <if test="ruleId != null">rule_Id = #{ruleId},</if>
+            <if test="ruleName != null">rule_Name = #{ruleName},</if>
+            <if test="accountNumber != null">account_number = #{accountNumber},</if>
+            <if test="accountNumberused != null">account_numberUsed = #{accountNumberused},</if>
+        </trim>
+        where pk_id = #{pkId}
+    </update>
+
+    <delete id="deleteSsePbuConfigByPkId" parameterType="Long">
+        delete from sse_pbu_config where pk_id = #{pkId}
+    </delete>
+
+    <delete id="deleteSsePbuConfigByPkIds" parameterType="String">
+        delete from sse_pbu_config where pk_id in
+        <foreach item="pkId" collection="array" open="(" separator="," close=")">
+            #{pkId}
+        </foreach>
+    </delete>
+
+    <insert id="batchInsertSsePbuConfig" parameterType="java.util.List">
+        INSERT INTO sse_pbu_config (
+        pbu_id,
+        is_used,
+        is_loginPbu,
+        is_bizPbu,
+        belongTo_loginPbu,
+        rule_Id,
+        rule_Name,
+        account_number,
+        account_numberUsed
+        ) VALUES
+        <foreach collection="list" item="item" separator=",">
+            (
+            #{item.pbuId},
+            #{item.isUsed},
+            #{item.isLoginpbu},
+            #{item.isBizpbu},
+            #{item.belongtoLoginpbu},
+            #{item.ruleId},
+            #{item.ruleName},
+            #{item.accountNumber},
+            #{item.accountNumberused}
+            )
+        </foreach>
+    </insert>
+
+    <delete id="clearSsePbuConfig" >
+        truncate table sse_pbu_config
+    </delete>
+
+
+    <select id="selectLoginPbuIdList" parameterType="Long" >
+        <!-- 假设查询 account_id 字段的前n条 -->
+        SELECT pbu_id
+        FROM sse_pbu_config
+        WHERE account_number = 0 and is_used = 0
+        LIMIT #{loginPbuNumber}
+    </select>
+
+    <select id="selectBizPbuIdList" parameterType="map" >
+        <!-- 假设查询 account_id 字段的前n条 -->
+        SELECT pbu_id
+        FROM sse_pbu_config
+        WHERE account_number >= #{accountNumber} and is_used = 0
+        LIMIT #{bizPbuNumber}
+    </select>
+
+</mapper>

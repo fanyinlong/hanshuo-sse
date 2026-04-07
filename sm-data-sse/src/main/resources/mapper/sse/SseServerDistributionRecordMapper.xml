@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.shenmei.data.sse.mapper.SseServerDistributionRecordMapper">
+
+    <resultMap type="SseServerDistributionRecord" id="SseServerDistributionRecordResult">
+        <result property="pkId" column="pk_id"/>
+        <result property="ruleId" column="rule_id"/>
+        <result property="distributionStatus" column="distribution_status"/>
+        <result property="distributionUser" column="distribution_user"/>
+        <result property="distributionTime" column="distribution_time"/>
+        <result property="distributionVersion" column="distribution_version"/>
+        <result property="totalCount" column="total_count"/>
+        <result property="errorMessage" column="error_message"/>
+        <result property="createBy" column="create_by"/>
+        <result property="createTime" column="create_time"/>
+        <result property="updateBy" column="update_by"/>
+        <result property="updateTime" column="update_time"/>
+        <result property="remark" column="remark"/>
+    </resultMap>
+
+    <sql id="selectSseServerDistributionRecordVo">
+        select pk_id, rule_id, distribution_status, distribution_user, distribution_time, distribution_version, total_count, error_message, create_by, create_time, update_by, update_time, remark from sse_server_distribution_record
+    </sql>
+
+    <select id="selectSseServerDistributionRecordList" parameterType="SseServerDistributionRecord" resultMap="SseServerDistributionRecordResult">
+        <include refid="selectSseServerDistributionRecordVo"/>
+        <where>
+            <if test="ruleId != null "> and rule_id = #{ruleId}</if>
+            <if test="distributionStatus != null  and distributionStatus != ''"> and distribution_status = #{distributionStatus}</if>
+            <if test="distributionUser != null  and distributionUser != ''"> and distribution_user = #{distributionUser}</if>
+            <if test="distributionTime != null "> and distribution_time = #{distributionTime}</if>
+            <if test="distributionVersion != null  and distributionVersion != ''"> and distribution_version = #{distributionVersion}</if>
+        </where>
+        order by create_time desc
+    </select>
+
+    <select id="selectSseServerDistributionRecordByPkId" parameterType="Long" resultMap="SseServerDistributionRecordResult">
+        <include refid="selectSseServerDistributionRecordVo"/>
+        where pk_id = #{pkId}
+    </select>
+
+    <insert id="insertSseServerDistributionRecord" parameterType="SseServerDistributionRecord" useGeneratedKeys="true" keyProperty="pkId">
+        insert into sse_server_distribution_record
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="ruleId != null">rule_id,</if>
+            <if test="distributionStatus != null and distributionStatus != ''">distribution_status,</if>
+            <if test="distributionUser != null and distributionUser != ''">distribution_user,</if>
+            <if test="distributionTime != null">distribution_time,</if>
+            <if test="distributionVersion != null and distributionVersion != ''">distribution_version,</if>
+            <if test="totalCount != null">total_count,</if>
+            <if test="errorMessage != null and errorMessage != ''">error_message,</if>
+            <if test="createBy != null and createBy != ''">create_by,</if>
+            <if test="createTime != null">create_time,</if>
+            <if test="updateBy != null and updateBy != ''">update_by,</if>
+            <if test="updateTime != null">update_time,</if>
+            <if test="remark != null and remark != ''">remark,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="ruleId != null">#{ruleId},</if>
+            <if test="distributionStatus != null and distributionStatus != ''">#{distributionStatus},</if>
+            <if test="distributionUser != null and distributionUser != ''">#{distributionUser},</if>
+            <if test="distributionTime != null">#{distributionTime},</if>
+            <if test="distributionVersion != null and distributionVersion != ''">#{distributionVersion},</if>
+            <if test="totalCount != null">#{totalCount},</if>
+            <if test="errorMessage != null and errorMessage != ''">#{errorMessage},</if>
+            <if test="createBy != null and createBy != ''">#{createBy},</if>
+            <if test="createTime != null">#{createTime},</if>
+            <if test="updateBy != null and updateBy != ''">#{updateBy},</if>
+            <if test="updateTime != null">#{updateTime},</if>
+            <if test="remark != null and remark != ''">#{remark},</if>
+         </trim>
+    </insert>
+
+    <update id="updateSseServerDistributionRecord" parameterType="SseServerDistributionRecord">
+        update sse_server_distribution_record
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="ruleId != null">rule_id = #{ruleId},</if>
+            <if test="distributionStatus != null and distributionStatus != ''">distribution_status = #{distributionStatus},</if>
+            <if test="distributionUser != null and distributionUser != ''">distribution_user = #{distributionUser},</if>
+            <if test="distributionTime != null">distribution_time = #{distributionTime},</if>
+            <if test="distributionVersion != null and distributionVersion != ''">distribution_version = #{distributionVersion},</if>
+            <if test="totalCount != null">total_count = #{totalCount},</if>
+            <if test="errorMessage != null and errorMessage != ''">error_message = #{errorMessage},</if>
+            <if test="createBy != null and createBy != ''">create_by = #{createBy},</if>
+            <if test="createTime != null">create_time = #{createTime},</if>
+            <if test="updateBy != null and updateBy != ''">update_by = #{updateBy},</if>
+            <if test="updateTime != null">update_time = #{updateTime},</if>
+            <if test="remark != null and remark != ''">remark = #{remark},</if>
+        </trim>
+        where pk_id = #{pkId}
+    </update>
+
+    <delete id="deleteSseServerDistributionRecordByPkId" parameterType="Long">
+        delete from sse_server_distribution_record where pk_id = #{pkId}
+    </delete>
+
+    <delete id="deleteSseServerDistributionRecordByPkIds" parameterType="String">
+        delete from sse_server_distribution_record where pk_id in
+        <foreach item="pkId" collection="array" open="(" separator="," close=")">
+            #{pkId}
+        </foreach>
+    </delete>
+</mapper>

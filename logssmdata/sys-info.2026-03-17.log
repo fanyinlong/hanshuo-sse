@@ -1,0 +1,11 @@
+10:17:11.616 [restartedMain] INFO  c.s.d.ShenMeiApplication - [logStarting,55] - Starting ShenMeiApplication using Java 1.8.0_65 on fan with PID 6864 (D:\Users\24517\Desktop\shenmei-datadriver-demo\shenmei-datadriver-demo\sm-data-admin\target\classes started by 24517 in D:\Users\24517\Desktop\shenmei-datadriver-demo\shenmei-datadriver-demo)
+10:17:11.616 [background-preinit] INFO  o.h.v.i.util.Version - [<clinit>,21] - HV000001: Hibernate Validator 6.2.5.Final
+10:17:11.638 [restartedMain] INFO  c.s.d.ShenMeiApplication - [logStartupProfileInfo,686] - The following 2 profiles are active: "druid", "dev"
+10:17:14.586 [restartedMain] INFO  o.a.c.h.Http11NioProtocol - [log,168] - Initializing ProtocolHandler ["http-nio-8080"]
+10:17:14.587 [restartedMain] INFO  o.a.c.c.StandardService - [log,168] - Starting service [Tomcat]
+10:17:14.588 [restartedMain] INFO  o.a.c.c.StandardEngine - [log,168] - Starting Servlet engine: [Apache Tomcat/9.0.106]
+10:17:14.703 [restartedMain] INFO  o.a.c.c.C.[.[.[/] - [log,168] - Initializing Spring embedded WebApplicationContext
+10:17:16.028 [restartedMain] INFO  c.a.d.p.DruidDataSource - [init,1002] - {dataSource-1} inited
+10:17:19.509 [restartedMain] INFO  c.a.d.p.DruidDataSource - [close,2204] - {dataSource-1} closing ...
+10:17:19.512 [restartedMain] INFO  c.a.d.p.DruidDataSource - [close,2277] - {dataSource-1} closed
+10:17:19.661 [restartedMain] INFO  o.a.c.c.StandardService - [log,168] - Stopping service [Tomcat]

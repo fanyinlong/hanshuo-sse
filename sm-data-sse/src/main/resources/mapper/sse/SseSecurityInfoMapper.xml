@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.shenmei.data.sse.mapper.SseSecurityInfoMapper">
+
+    <resultMap type="SseSecurityInfo" id="SseSecurityInfoResult">
+        <result property="pkId"    column="pk_id"    />
+        <result property="securityId"    column="security_id"    />
+        <result property="isinCode"    column="isin_code"    />
+        <result property="recordTime"    column="update_time"    />
+        <result property="securityCname"    column="security_cname"    />
+        <result property="securityName"    column="security_name"    />
+        <result property="oriSecurityId"    column="ori_security_id"    />
+        <result property="securityMarket"    column="security_market"    />
+        <result property="securityType"    column="security_type"    />
+        <result property="securitySubType"    column="security_sub_type"    />
+        <result property="currencyType"    column="currency_type"    />
+        <result property="parValue"    column="par_value"    />
+        <result property="unissuedSecurities"    column="unissued_securities"    />
+        <result property="lastTradeDate"    column="last_trade_date"    />
+        <result property="listingDate"    column="listing_date"    />
+        <result property="securitySet"    column="security_set"    />
+        <result property="buyUnit"    column="buy_unit"    />
+        <result property="sellUnit"    column="sell_unit"    />
+        <result property="limitOrderBottom"    column="limit_order_bottom"    />
+        <result property="limitOrderTop"    column="limit_order_top"    />
+        <result property="priorClosingPrice"    column="prior_closing_price"    />
+        <result property="priceTick"    column="price_tick"    />
+        <result property="priceLimitType"    column="price_limit_type"    />
+        <result property="priceUpsideLimit"    column="price_upside_limit"    />
+        <result property="priceDownsideLimit"    column="price_downside_limit"    />
+        <result property="usageStatus"    column="usage_status"    />
+    </resultMap>
+
+    <sql id="selectSseSecurityInfoVo">
+        select pk_id, security_id, isin_code, update_time, security_cname, security_name, ori_security_id, security_market, security_type, security_sub_type, currency_type, par_value, unissued_securities, last_trade_date, listing_date, security_set, buy_unit, sell_unit, limit_order_bottom, limit_order_top, prior_closing_price, price_tick, price_limit_type, price_upside_limit, price_downside_limit, usage_status from sse_security_info
+    </sql>
+
+    <select id="selectSseSecurityInfoList" parameterType="SseSecurityInfo" resultMap="SseSecurityInfoResult">
+        <include refid="selectSseSecurityInfoVo"/>
+        <where>
+            <if test="securityId != null  and securityId != ''"> and security_id like concat('%', #{securityId}, '%')</if>
+            <if test="securityCname != null  and securityCname != ''"> and security_cname like concat('%', #{securityCname}, '%')</if>
+            <if test="securityMarket != null  and securityMarket != ''"> and security_market = #{securityMarket}</if>
+            <if test="securityType != null  and securityType != ''"> and security_type = #{securityType}</if>
+            <if test="securitySubType != null  and securitySubType != ''"> and security_sub_type = #{securitySubType}</if>
+            <if test="securitySet != null "> and security_set = #{securitySet}</if>
+            <if test="priceLimitType != null  and priceLimitType != ''"> and price_limit_type = #{priceLimitType}</if>
+            <if test="usageStatus != null  and usageStatus != ''"> and usage_status = #{usageStatus}</if>
+        </where>
+    </select>
+
+    <select id="selectSseSecurityInfoByPkId" parameterType="Long" resultMap="SseSecurityInfoResult">
+        <include refid="selectSseSecurityInfoVo"/>
+        where pk_id = #{pkId}
+    </select>
+
+    <insert id="insertSseSecurityInfo" parameterType="SseSecurityInfo" useGeneratedKeys="true" keyProperty="pkId">
+        insert into sse_security_info
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="securityId != null and securityId != ''">security_id,</if>
+            <if test="isinCode != null">isin_code,</if>
+            <if test="recordTime != null">update_time,</if>
+            <if test="securityCname != null and securityCname != ''">security_cname,</if>
+            <if test="securityName != null">security_name,</if>
+            <if test="oriSecurityId != null">ori_security_id,</if>
+            <if test="securityMarket != null and securityMarket != ''">security_market,</if>
+            <if test="securityType != null and securityType != ''">security_type,</if>
+            <if test="securitySubType != null and securitySubType != ''">security_sub_type,</if>
+            <if test="currencyType != null">currency_type,</if>
+            <if test="parValue != null">par_value,</if>
+            <if test="unissuedSecurities != null">unissued_securities,</if>
+            <if test="lastTradeDate != null">last_trade_date,</if>
+            <if test="listingDate != null">listing_date,</if>
+            <if test="securitySet != null">security_set,</if>
+            <if test="buyUnit != null">buy_unit,</if>
+            <if test="sellUnit != null">sell_unit,</if>
+            <if test="limitOrderBottom != null">limit_order_bottom,</if>
+            <if test="limitOrderTop != null">limit_order_top,</if>
+            <if test="priorClosingPrice != null">prior_closing_price,</if>
+            <if test="priceTick != null">price_tick,</if>
+            <if test="priceLimitType != null">price_limit_type,</if>
+            <if test="priceUpsideLimit != null">price_upside_limit,</if>
+            <if test="priceDownsideLimit != null">price_downside_limit,</if>
+            <if test="usageStatus != null">usage_status,</if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="securityId != null and securityId != ''">#{securityId},</if>
+            <if test="isinCode != null">#{isinCode},</if>
+            <if test="recordTime != null">#{recordTime},</if>
+            <if test="securityCname != null and securityCname != ''">#{securityCname},</if>
+            <if test="securityName != null">#{securityName},</if>
+            <if test="oriSecurityId != null">#{oriSecurityId},</if>
+            <if test="securityMarket != null and securityMarket != ''">#{securityMarket},</if>
+            <if test="securityType != null and securityType != ''">#{securityType},</if>
+            <if test="securitySubType != null and securitySubType != ''">#{securitySubType},</if>
+            <if test="currencyType != null">#{currencyType},</if>
+            <if test="parValue != null">#{parValue},</if>
+            <if test="unissuedSecurities != null">#{unissuedSecurities},</if>
+            <if test="lastTradeDate != null">#{lastTradeDate},</if>
+            <if test="listingDate != null">#{listingDate},</if>
+            <if test="securitySet != null">#{securitySet},</if>
+            <if test="buyUnit != null">#{buyUnit},</if>
+            <if test="sellUnit != null">#{sellUnit},</if>
+            <if test="limitOrderBottom != null">#{limitOrderBottom},</if>
+            <if test="limitOrderTop != null">#{limitOrderTop},</if>
+            <if test="priorClosingPrice != null">#{priorClosingPrice},</if>
+            <if test="priceTick != null">#{priceTick},</if>
+            <if test="priceLimitType != null">#{priceLimitType},</if>
+            <if test="priceUpsideLimit != null">#{priceUpsideLimit},</if>
+            <if test="priceDownsideLimit != null">#{priceDownsideLimit},</if>
+            <if test="usageStatus != null">#{usageStatus},</if>
+        </trim>
+    </insert>
+
+    <update id="updateSseSecurityInfo" parameterType="SseSecurityInfo">
+        update sse_security_info
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="securityId != null and securityId != ''">security_id = #{securityId},</if>
+            <if test="isinCode != null">isin_code = #{isinCode},</if>
+            <if test="recordTime != null">update_time = #{recordTime},</if>
+            <if test="securityCname != null and securityCname != ''">security_cname = #{securityCname},</if>
+            <if test="securityName != null">security_name = #{securityName},</if>
+            <if test="oriSecurityId != null">ori_security_id = #{oriSecurityId},</if>
+            <if test="securityMarket != null and securityMarket != ''">security_market = #{securityMarket},</if>
+            <if test="securityType != null and securityType != ''">security_type = #{securityType},</if>
+            <if test="securitySubType != null and securitySubType != ''">security_sub_type = #{securitySubType},</if>
+            <if test="currencyType != null">currency_type = #{currencyType},</if>
+            <if test="parValue != null">par_value = #{parValue},</if>
+            <if test="unissuedSecurities != null">unissued_securities = #{unissuedSecurities},</if>
+            <if test="lastTradeDate != null">last_trade_date = #{lastTradeDate},</if>
+            <if test="listingDate != null">listing_date = #{listingDate},</if>
+            <if test="securitySet != null">security_set = #{securitySet},</if>
+            <if test="buyUnit != null">buy_unit = #{buyUnit},</if>
+            <if test="sellUnit != null">sell_unit = #{sellUnit},</if>
+            <if test="limitOrderBottom != null">limit_order_bottom = #{limitOrderBottom},</if>
+            <if test="limitOrderTop != null">limit_order_top = #{limitOrderTop},</if>
+            <if test="priorClosingPrice != null">prior_closing_price = #{priorClosingPrice},</if>
+            <if test="priceTick != null">price_tick = #{priceTick},</if>
+            <if test="priceLimitType != null">price_limit_type = #{priceLimitType},</if>
+            <if test="priceUpsideLimit != null">price_upside_limit = #{priceUpsideLimit},</if>
+            <if test="priceDownsideLimit != null">price_downside_limit = #{priceDownsideLimit},</if>
+            <if test="usageStatus != null">usage_status = #{usageStatus},</if>
+        </trim>
+        where pk_id = #{pkId}
+    </update>
+
+    <delete id="deleteSseSecurityInfoByPkId" parameterType="Long">
+        delete from sse_security_info where pk_id = #{pkId}
+    </delete>
+
+    <delete id="deleteSseSecurityInfoByPkIds" parameterType="String">
+        delete from sse_security_info where pk_id in
+        <foreach item="pkId" collection="array" open="(" separator="," close=")">
+            #{pkId}
+        </foreach>
+    </delete>
+
+    <insert id="batchInsertSseSecurityInfo" parameterType="java.util.List" useGeneratedKeys="true" keyProperty="pkId">
+        INSERT INTO sse_security_info (
+        security_id,
+        isin_code,
+        update_time,
+        security_cname,
+        security_name,
+        ori_security_id,
+        security_market,
+        security_type,
+        security_sub_type,
+        currency_type,
+        par_value,
+        unissued_securities,
+        last_trade_date,
+        listing_date,
+        security_set,
+        buy_unit,
+        sell_unit,
+        limit_order_bottom,
+        limit_order_top,
+        prior_closing_price,
+        price_tick,
+        price_limit_type,
+        price_upside_limit,
+        price_downside_limit,
+        usage_status
+        ) VALUES
+        <foreach collection="list" item="item" separator=",">
+            (
+             #{item.securityId},
+             #{item.isinCode},
+             #{item.recordTime},
+             #{item.securityCname},
+             #{item.securityName},
+             #{item.oriSecurityId},
+             #{item.securityMarket},
+             #{item.securityType},
+             #{item.securitySubType},
+             #{item.currencyType},
+             #{item.parValue},
+             #{item.unissuedSecurities},
+             #{item.lastTradeDate},
+             #{item.listingDate},
+             #{item.securitySet},
+             #{item.buyUnit},
+             #{item.sellUnit},
+             #{item.limitOrderBottom},
+             #{item.limitOrderTop},
+             #{item.priorClosingPrice},
+             #{item.priceTick},
+             #{item.priceLimitType},
+             #{item.priceUpsideLimit},
+             #{item.priceDownsideLimit},
+             #{item.usageStatus}
+            )
+        </foreach>
+    </insert>
+
+    <delete id="clearSseSecurityInfo" parameterType="String">
+        truncate table sse_security_info
+    </delete>
+
+
+    <select id="securitySetCount" parameterType="SseSecurityInfo" resultType="com.shenmei.data.sse.dto.CountCommonDo">
+        select security_set as value,count(1) as count FROM sse_security_info
+        <where>
+            <if test="securityMarket != null  and securityMarket != ''"> and security_market = #{securityMarket}</if>
+            <if test="securityType != null  and securityType != ''"> and security_type = #{securityType}</if>
+            <if test="securitySubType != null  and securitySubType != ''"> and security_sub_type = #{securitySubType}</if>
+            <if test="securitySet != null "> and security_set = #{securitySet}</if>
+        </where>
+        group by security_set
+    </select>
+
+    <select id="selectRandomSecurityIds" parameterType="SseSecurityInfo" resultMap="SseSecurityInfoResult">
+        <include refid="selectSseSecurityInfoVo"/>
+        <where>
+            <if test="sseSecurityInfo.securityId != null and sseSecurityInfo.securityId != ''"> AND security_id LIKE CONCAT('%', #{sseSecurityInfo.securityId}, '%')</if>
+            <if test="sseSecurityInfo.securityCname != null and sseSecurityInfo.securityCname != ''"> AND security_cname LIKE CONCAT('%', #{sseSecurityInfo.securityCname}, '%')</if>
+            <if test="sseSecurityInfo.securityMarket != null and sseSecurityInfo.securityMarket != ''"> AND security_market = #{sseSecurityInfo.securityMarket}</if>
+            <if test="sseSecurityInfo.securityType != null and sseSecurityInfo.securityType != ''"> AND security_type = #{sseSecurityInfo.securityType}</if>
+            <if test="sseSecurityInfo.securitySubType != null and sseSecurityInfo.securitySubType != ''"> AND security_sub_type = #{sseSecurityInfo.securitySubType}</if>
+            <if test="sseSecurityInfo.securitySet != null"> AND security_set = #{sseSecurityInfo.securitySet}</if>
+            <if test="sseSecurityInfo.priceLimitType != null and sseSecurityInfo.priceLimitType != ''"> AND price_limit_type = #{sseSecurityInfo.priceLimitType}</if>
+            <if test="sseSecurityInfo.usageStatus != null and sseSecurityInfo.usageStatus != ''"> AND usage_status = #{sseSecurityInfo.usageStatus}</if>
+        </where>
+        ORDER BY RAND() LIMIT #{count}
+    </select>
+</mapper>

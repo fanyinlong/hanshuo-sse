@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.shenmei.data.sse.mapper.SseServerInfoMapper">
+
+    <resultMap type="SseServerInfo" id="SseServerInfoResult">
+        <result property="serverId"    column="server_id"    />
+        <result property="serverName"    column="server_name"    />
+        <result property="isAvaliable"    column="is_avaliable"    />
+        <result property="platformId"    column="platform_id"    />
+        <result property="envId"    column="env_id"    />
+        <result property="ipAddress"    column="ip_address"    />
+        <result property="loginName"    column="login_name"    />
+        <result property="authCode"    column="auth_code"    />
+        <result property="encryptionKey"    column="encryption_key"    />
+        <result property="port"    column="port"    />
+        <result property="instanceName"    column="instance_name"    />
+    </resultMap>
+
+    <sql id="selectSseServerInfoVo">
+        select server_id, server_name, is_avaliable, platform_id, env_id, ip_address, login_name, auth_code, encryption_key, port,instance_name  from sse_server_info
+    </sql>
+
+    <select id="selectSseServerInfoList" parameterType="SseServerInfo" resultMap="SseServerInfoResult">
+        <include refid="selectSseServerInfoVo"/>
+        <where>
+            <if test="serverId != null  and serverId != ''"> and server_id like concat('%', #{serverId}, '%')</if>
+            <if test="serverName != null  and serverName != ''"> and server_name like concat('%', #{serverName}, '%')</if>
+            <if test="isAvaliable != null  and isAvaliable != ''"> and is_avaliable = #{isAvaliable}</if>
+            <if test="platformId != null  and platformId != ''"> and platform_id = #{platformId}</if>
+            <if test="envId != null  and envId != ''"> and env_id = #{envId}</if>
+            <if test="ipAddress != null  and ipAddress != ''"> and ip_address = #{ipAddress}</if>
+        </where>
+    </select>
+
+    <select id="selectSseServerInfoByServerId" parameterType="String" resultMap="SseServerInfoResult">
+        <include refid="selectSseServerInfoVo"/>
+        where server_id = #{serverId}
+    </select>
+
+    <insert id="insertSseServerInfo" parameterType="SseServerInfo">
+        insert into sse_server_info
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="serverId != null">server_id,</if>
+            <if test="serverName != null">server_name,</if>
+            <if test="isAvaliable != null">is_avaliable,</if>
+            <if test="platformId != null">platform_id,</if>
+            <if test="envId != null">env_id,</if>
+            <if test="ipAddress != null">ip_address,</if>
+            <if test="loginName != null">login_name,</if>
+            <if test="authCode != null">auth_code,</if>
+            <if test="encryptionKey != null">encryption_key,</if>
+            <if test="port != null">port,</if>
+            <if test="instanceName != null">instance_name,</if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="serverId != null">#{serverId},</if>
+            <if test="serverName != null">#{serverName},</if>
+            <if test="isAvaliable != null">#{isAvaliable},</if>
+            <if test="platformId != null">#{platformId},</if>
+            <if test="envId != null">#{envId},</if>
+            <if test="ipAddress != null">#{ipAddress},</if>
+            <if test="loginName != null">#{loginName},</if>
+            <if test="authCode != null">#{authCode},</if>
+            <if test="encryptionKey != null">#{encryptionKey},</if>
+            <if test="port != null">#{port},</if>
+            <if test="instanceName != null">#{instanceName},</if>
+        </trim>
+    </insert>
+
+
+
+    <update id="updateSseServerInfo" parameterType="SseServerInfo">
+        update sse_server_info
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="serverName != null">server_name = #{serverName},</if>
+            <if test="isAvaliable != null">is_avaliable = #{isAvaliable},</if>
+            <if test="platformId != null">platform_id = #{platformId},</if>
+            <if test="envId != null">env_id = #{envId},</if>
+            <if test="ipAddress != null">ip_address = #{ipAddress},</if>
+            <if test="loginName != null">login_name = #{loginName},</if>
+            <if test="authCode != null">auth_code = #{authCode},</if>
+            <if test="encryptionKey != null">encryption_key = #{encryptionKey},</if>
+            <if test="port != null">port = #{port},</if>
+            <if test="instanceName != null">instance_name = #{instanceName},</if>
+        </trim>
+        where server_id = #{serverId}
+    </update>
+
+    <delete id="deleteSseServerInfoByServerId" parameterType="String">
+        delete from sse_server_info where server_id = #{serverId}
+    </delete>
+
+    <delete id="deleteSseServerInfoByServerIds" parameterType="String">
+        delete from sse_server_info where server_id in
+        <foreach item="serverId" collection="array" open="(" separator="," close=")">
+            #{serverId}
+        </foreach>
+    </delete>
+</mapper>

@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.shenmei.data.sse.mapper.SseOrderStatsMapper">
+
+    <resultMap type="SseOrderStats" id="SseOrderStatsResult">
+        <result property="pkId"    column="pk_id"    />
+        <result property="ruleId"    column="rule_id"    />
+        <result property="totalOrders"    column="total_orders"    />
+        <result property="loginPbuOrders"    column="login_pbu_orders"    />
+        <result property="bizPbuOrders"    column="biz_pbu_orders"    />
+        <result property="ashKshOrders"    column="ash_ksh_orders"    />
+        <result property="setsOrders"    column="sets_orders"    />
+        <result property="matchingTypeOrders"    column="matching_type_orders"    />
+        <result property="matchingSideOrders"    column="matching_side_orders"    />
+        <result property="accountTypeOrders"    column="account_type_orders"    />
+        <result property="field1"    column="field_1"    />
+        <result property="field2"    column="field_2"    />
+        <result property="field3"    column="field_3"    />
+        <result property="field4"    column="field_4"    />
+        <result property="field5"    column="field_5"    />
+        <result property="field6"    column="field_6"    />
+    </resultMap>
+
+    <sql id="selectSseOrderStatsVo">
+        select pk_id, rule_id, total_orders, login_pbu_orders, biz_pbu_orders, ash_ksh_orders, sets_orders, matching_type_orders, matching_side_orders, account_type_orders, field_1, field_2, field_3, field_4, field_5, field_6 from sse_order_stats
+    </sql>
+
+    <select id="selectSseOrderStatsList" parameterType="SseOrderStats" resultMap="SseOrderStatsResult">
+        <include refid="selectSseOrderStatsVo"/>
+        <where>
+            <if test="ruleId != null "> and rule_id = #{ruleId}</if>
+        </where>
+    </select>
+
+    <select id="selectSseOrderStatsByPkId" parameterType="Long" resultMap="SseOrderStatsResult">
+        <include refid="selectSseOrderStatsVo"/>
+        where pk_id = #{pkId}
+    </select>
+
+    <insert id="insertSseOrderStats" parameterType="SseOrderStats" useGeneratedKeys="true" keyProperty="pkId">
+        insert into sse_order_stats
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="ruleId != null">rule_id,</if>
+            <if test="totalOrders != null">total_orders,</if>
+            <if test="loginPbuOrders != null">login_pbu_orders,</if>
+            <if test="bizPbuOrders != null">biz_pbu_orders,</if>
+            <if test="ashKshOrders != null">ash_ksh_orders,</if>
+            <if test="setsOrders != null">sets_orders,</if>
+            <if test="matchingTypeOrders != null">matching_type_orders,</if>
+            <if test="matchingSideOrders != null">matching_side_orders,</if>
+            <if test="accountTypeOrders != null">account_type_orders,</if>
+            <if test="field1 != null">field_1,</if>
+            <if test="field2 != null">field_2,</if>
+            <if test="field3 != null">field_3,</if>
+            <if test="field4 != null">field_4,</if>
+            <if test="field5 != null">field_5,</if>
+            <if test="field6 != null">field_6,</if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="ruleId != null">#{ruleId},</if>
+            <if test="totalOrders != null">#{totalOrders},</if>
+            <if test="loginPbuOrders != null">#{loginPbuOrders},</if>
+            <if test="bizPbuOrders != null">#{bizPbuOrders},</if>
+            <if test="ashKshOrders != null">#{ashKshOrders},</if>
+            <if test="setsOrders != null">#{setsOrders},</if>
+            <if test="matchingTypeOrders != null">#{matchingTypeOrders},</if>
+            <if test="matchingSideOrders != null">#{matchingSideOrders},</if>
+            <if test="accountTypeOrders != null">#{accountTypeOrders},</if>
+            <if test="field1 != null">#{field1},</if>
+            <if test="field2 != null">#{field2},</if>
+            <if test="field3 != null">#{field3},</if>
+            <if test="field4 != null">#{field4},</if>
+            <if test="field5 != null">#{field5},</if>
+            <if test="field6 != null">#{field6},</if>
+        </trim>
+    </insert>
+
+    <update id="updateSseOrderStats" parameterType="SseOrderStats">
+        update sse_order_stats
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="ruleId != null">rule_id = #{ruleId},</if>
+            <if test="totalOrders != null">total_orders = #{totalOrders},</if>
+            <if test="loginPbuOrders != null">login_pbu_orders = #{loginPbuOrders},</if>
+            <if test="bizPbuOrders != null">biz_pbu_orders = #{bizPbuOrders},</if>
+            <if test="ashKshOrders != null">ash_ksh_orders = #{ashKshOrders},</if>
+            <if test="setsOrders != null">sets_orders = #{setsOrders},</if>
+            <if test="matchingTypeOrders != null">matching_type_orders = #{matchingTypeOrders},</if>
+            <if test="matchingSideOrders != null">matching_side_orders = #{matchingSideOrders},</if>
+            <if test="accountTypeOrders != null">account_type_orders = #{accountTypeOrders},</if>
+            <if test="field1 != null">field_1 = #{field1},</if>
+            <if test="field2 != null">field_2 = #{field2},</if>
+            <if test="field3 != null">field_3 = #{field3},</if>
+            <if test="field4 != null">field_4 = #{field4},</if>
+            <if test="field5 != null">field_5 = #{field5},</if>
+            <if test="field6 != null">field_6 = #{field6},</if>
+        </trim>
+        where pk_id = #{pkId}
+    </update>
+
+    <delete id="deleteSseOrderStatsByPkId" parameterType="Long">
+        delete from sse_order_stats where pk_id = #{pkId}
+    </delete>
+
+    <delete id="deleteSseOrderStatsByPkIds" parameterType="String">
+        delete from sse_order_stats where pk_id in
+        <foreach item="pkId" collection="array" open="(" separator="," close=")">
+            #{pkId}
+        </foreach>
+    </delete>
+
+    <select id="selectOrdersStatsDetailByRuleId" parameterType="map" >
+        select distinct ${category} from sse_order_stats where rule_id = #{ruleId}
+    </select>
+</mapper>

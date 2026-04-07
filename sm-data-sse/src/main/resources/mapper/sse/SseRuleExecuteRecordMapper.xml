@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.shenmei.data.sse.mapper.SseRuleExecuteRecordMapper">
+    
+    <resultMap type="SseRuleExecuteRecord" id="SseRuleExecuteRecordResult">
+        <result property="pkId"    column="pk_id"    />
+        <result property="ruleId"    column="rule_id"    />
+        <result property="orderNumber"    column="order_number"    />
+        <result property="orderType"    column="order_type"    />
+        <result property="executeStatus"    column="execute_status"    />
+        <result property="executeUser"    column="execute_user"    />
+        <result property="executeTime"    column="execute_time"    />
+        <result property="executeRuleVersion"    column="execute_rule_version"    />
+    </resultMap>
+
+    <sql id="selectSseRuleExecuteRecordVo">
+        select pk_id, rule_id, order_number, order_type, execute_status, execute_user, execute_time, execute_rule_version from sse_rule_execute_record
+    </sql>
+
+    <select id="selectSseRuleExecuteRecordList" parameterType="SseRuleExecuteRecord" resultMap="SseRuleExecuteRecordResult">
+        <include refid="selectSseRuleExecuteRecordVo"/>
+        <where>  
+            <if test="ruleId != null "> and rule_id = #{ruleId}</if>
+            <if test="orderNumber != null "> and order_number = #{orderNumber}</if>
+            <if test="orderType != null  and orderType != ''"> and order_type = #{orderType}</if>
+            <if test="executeStatus != null  and executeStatus != ''"> and execute_status = #{executeStatus}</if>
+            <if test="executeUser != null  and executeUser != ''"> and execute_user = #{executeUser}</if>
+            <if test="executeTime != null "> and execute_time = #{executeTime}</if>
+            <if test="executeRuleVersion != null  and executeRuleVersion != ''"> and execute_rule_version = #{executeRuleVersion}</if>
+        </where>
+        ORDER BY pk_id DESC
+    </select>
+    
+    <select id="selectSseRuleExecuteRecordByPkId" parameterType="Long" resultMap="SseRuleExecuteRecordResult">
+        <include refid="selectSseRuleExecuteRecordVo"/>
+        where pk_id = #{pkId}
+    </select>
+
+    <insert id="insertSseRuleExecuteRecord" parameterType="SseRuleExecuteRecord" useGeneratedKeys="true" keyProperty="pkId">
+        insert into sse_rule_execute_record
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="ruleId != null">rule_id,</if>
+            <if test="orderNumber != null">order_number,</if>
+            <if test="orderType != null">order_type,</if>
+            <if test="executeStatus != null">execute_status,</if>
+            <if test="executeUser != null">execute_user,</if>
+
+            <if test="executeTime != null">execute_time,</if>
+            <if test="executeRuleVersion != null">execute_rule_version,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="ruleId != null">#{ruleId},</if>
+            <if test="orderNumber != null">#{orderNumber},</if>
+            <if test="orderType != null">#{orderType},</if>
+            <if test="executeStatus != null">#{executeStatus},</if>
+            <if test="executeUser != null">#{executeUser},</if>
+            <if test="executeTime != null">#{executeTime},</if>
+            <if test="executeRuleVersion != null">#{executeRuleVersion},</if>
+         </trim>
+    </insert>
+
+    <update id="updateSseRuleExecuteRecord" parameterType="SseRuleExecuteRecord">
+        update sse_rule_execute_record
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="ruleId != null">rule_id = #{ruleId},</if>
+            <if test="orderNumber != null">order_number = #{orderNumber},</if>
+            <if test="orderType != null">order_type = #{orderType},</if>
+            <if test="executeStatus != null">execute_status = #{executeStatus},</if>
+            <if test="executeUser != null">execute_user = #{executeUser},</if>
+            <if test="executeTime != null">execute_time = #{executeTime},</if>
+            <if test="executeRuleVersion != null">execute_rule_version = #{executeRuleVersion},</if>
+        </trim>
+        where pk_id = #{pkId}
+    </update>
+
+    <delete id="deleteSseRuleExecuteRecordByPkId" parameterType="Long">
+        delete from sse_rule_execute_record where pk_id = #{pkId}
+    </delete>
+
+    <delete id="deleteSseRuleExecuteRecordByPkIds" parameterType="String">
+        delete from sse_rule_execute_record where pk_id in 
+        <foreach item="pkId" collection="array" open="(" separator="," close=")">
+            #{pkId}
+        </foreach>
+    </delete>
+</mapper>

@@ -1,0 +1,32 @@
+drop table if exists sse_order_info;
+
+CREATE TABLE `sse_order_info` (
+                                  `pk_id` bigint NOT NULL AUTO_INCREMENT COMMENT '订单编号',
+                                  `msg_head` varchar(58) NOT NULL COMMENT '消息头',
+                                  `biz_id` int unsigned DEFAULT NULL COMMENT '业务编号',
+                                  `biz_pbu` char(10) DEFAULT NULL COMMENT '业务PBU编号，前5位有效',
+                                  `cl_ord_id` char(10) DEFAULT NULL COMMENT '会员内部订单编号',
+                                  `security_id` char(6) DEFAULT NULL COMMENT '证券代码，前6位有效',
+                                  `account` char(13) DEFAULT NULL COMMENT '证券账户，前10位有效',
+                                  `owner_type` tinyint unsigned DEFAULT NULL COMMENT '暂不启用',
+                                  `side` char(1) DEFAULT NULL COMMENT '买卖方向:1=买,2=卖',
+                                  `price` decimal(20,4) DEFAULT NULL COMMENT '申报价格',
+                                  `order_qty` int DEFAULT NULL COMMENT '申报数量',
+                                  `ord_type` char(1) DEFAULT NULL COMMENT '订单类型:1=市转撤,2=限价,3=市转限,4=本方最优,5=对手方最优',
+                                  `time_in_force` char(1) DEFAULT '0' COMMENT '订单有效时间类型:0=当日有效',
+                                  `transact_time` datetime DEFAULT NULL COMMENT '申报时间',
+                                  `credit_tag` char(2) DEFAULT NULL COMMENT '信用标签:XY=担保品买卖,RZ=融资交易,RQ=融券交易,PC=融券交易',
+                                  `clearing_firm` char(8) DEFAULT NULL COMMENT '结算会员代码，前5位有效',
+                                  `branch_id` char(8) DEFAULT NULL COMMENT '营业部代码，前5位有效',
+                                  `orig_cl_ord_id` char(10) DEFAULT NULL COMMENT '原始会员内部订单编号(待撤原订单的ClOrdID)',
+                                  `user_info` char(32) DEFAULT NULL COMMENT '用户私有信息，前12位有效',
+                                  `extend_fields` varchar(255) DEFAULT NULL COMMENT '各业务扩展字段',
+                                  `order_set` char(2) DEFAULT NULL COMMENT '订单所属set',
+                                  `order_matching` char(2) DEFAULT NULL COMMENT '订单撮合方式:详见字典定义',
+                                  `order_table` char(32) DEFAULT NULL COMMENT '订单下发表',
+                                  `order_server_id` int DEFAULT NULL COMMENT '订单下发主机id',
+                                  `rule_id`bigint DEFAULT NULL COMMENT '规则ID',
+                                  PRIMARY KEY (`pk_id`),
+                                  KEY `sse_order_info_pk_id_IDX` (`pk_id`) USING BTREE,
+                                  KEY `idx_rule_table` (`rule_id`,`order_table`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='订单信息表';

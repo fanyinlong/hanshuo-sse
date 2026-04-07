@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.shenmei.data.sse.mapper.SseServerRuleMapper">
+    <resultMap type="SseServerRule" id="SseServerRuleResult">
+        <result property="id"    column="id"    />
+        <result property="ruleId"    column="rule_id"    />
+        <result property="serverId"    column="server_id"    />
+        <result property="serverName"    column="server_name"    />
+        <result property="pbuCount"    column="pbu_count"    />
+        <result property="ruleVersion"    column="rule_version"    />
+        <result property="reverse"    column="reverse"    />
+    </resultMap>
+    <sql id="selectSseServerRuleVo">
+        select id, rule_id, server_id, server_name, pbu_count, rule_version, reverse from sse_server_config
+    </sql>
+    <select id="selectSseServerRuleByServerIdAndRuleid" parameterType="SseServerRule" resultMap="SseServerRuleResult">
+        <include refid="selectSseServerRuleVo"/>
+        where server_id = #{serverId} and rule_id = #{ruleId}
+    </select>
+    <insert id="insertSseServerRule" useGeneratedKeys="true" keyProperty="id" parameterType="SseServerRule">
+        insert into sse_server_config
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="ruleId != null">rule_id,</if>
+            <if test="serverId != null">server_id,</if>
+            <if test="serverName != null">server_name,</if>
+            <if test="pbuCount != null">pbu_count,</if>
+            <if test="ruleVersion != null">rule_version,</if>
+            <if test="reverse != null">reverse,</if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="ruleId != null">#{ruleId},</if>
+            <if test="serverId != null">#{serverId},</if>
+            <if test="serverName != null">#{serverName},</if>
+            <if test="pbuCount != null">#{pbuCount},</if>
+            <if test="ruleVersion != null">#{ruleVersion},</if>
+            <if test="reverse != null">#{reverse},</if>
+        </trim>
+    </insert>
+
+    <select id="selectSseServerRuleList" parameterType="SseServerRule" resultMap="SseServerRuleResult">
+        <include refid="selectSseServerRuleVo"/>
+        <where>
+            <if test="serverId != null  and serverId != ''"> and server_id like concat('%', #{serverId}, '%')</if>
+            <if test="serverName != null  and serverName != ''"> and server_name like concat('%', #{serverName}, '%')</if>
+            <if test="ruleId != null  and ruleId != ''"> and rule_id = #{ruleId}</if>
+        </where>
+    </select>
+
+    <delete id="deleteSseServerRuleByServerIds" parameterType="String">
+        delete from sse_server_config where id in
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+
+    <select id="selectSseServerRuleById" parameterType="String" resultMap="SseServerRuleResult">
+        <include refid="selectSseServerRuleVo"/>
+        where id = #{id}
+    </select>
+
+    <update id="updateSseServerRule" parameterType="SseServerRule">
+        update sse_server_config
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="ruleId != null">rule_id = #{ruleId},</if>
+            <if test="pbuCount != null">pbu_count = #{pbuCount},</if>
+        </trim>
+        where id = #{id}
+    </update>
+    <select id="selectSseServerConfigByRuleId" parameterType="Long" resultMap="SseServerRuleResult">
+        <include refid="selectSseServerRuleVo"/>
+        where rule_id = #{id}
+    </select>
+</mapper>

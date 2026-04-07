@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.shenmei.data.sse.mapper.SseAccountInfoMapper">
+
+    <resultMap type="SseAccountInfo" id="SseAccountInfoResult">
+        <result property="pkId"    column="pk_id"    />
+        <result property="accountId"    column="account_id"    />
+        <result property="accountSubId"    column="account_sub_id"    />
+        <result property="pbuId"    column="pbu_id"    />
+        <result property="accountType"    column="account_type"    />
+        <result property="tradeType"    column="trade_type"    />
+        <result property="cancelFlag"    column="cancel_flag"    />
+        <result property="statusFlag"    column="status_flag"    />
+    </resultMap>
+
+    <sql id="selectSseAccountInfoVo">
+        select pk_id, account_id, account_sub_id, pbu_id, account_type, trade_type, cancel_flag, status_flag from sse_account_info
+    </sql>
+
+    <select id="selectSseAccountInfoList" parameterType="SseAccountInfo" resultMap="SseAccountInfoResult">
+        <include refid="selectSseAccountInfoVo"/>
+        <where>
+            <if test="accountId != null  and accountId != ''"> and account_id like concat('%', #{accountId}, '%')</if>
+            <if test="accountSubId != null  and accountSubId != ''"> and account_sub_id = #{accountSubId}</if>
+            <if test="pbuId != null  and pbuId != ''"> and pbu_id like concat('%', #{pbuId}, '%')</if>
+            <if test="accountType != null  and accountType != ''"> and account_type = #{accountType}</if>
+            <if test="tradeType != null  and tradeType != ''"> and trade_type = #{tradeType}</if>
+            <if test="cancelFlag != null  and cancelFlag != ''"> and cancel_flag = #{cancelFlag}</if>
+            <if test="statusFlag != null  and statusFlag != ''"> and status_flag = #{statusFlag}</if>
+        </where>
+    </select>
+
+    <select id="selectSseAccountInfoByPkId" parameterType="Long" resultMap="SseAccountInfoResult">
+        <include refid="selectSseAccountInfoVo"/>
+        where pk_id = #{pkId}
+    </select>
+
+    <insert id="insertSseAccountInfo" parameterType="SseAccountInfo" useGeneratedKeys="true" keyProperty="pkId">
+        insert into sse_account_info
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="accountId != null">account_id,</if>
+            <if test="accountSubId != null">account_sub_id,</if>
+            <if test="pbuId != null">pbu_id,</if>
+            <if test="accountType != null">account_type,</if>
+            <if test="tradeType != null">trade_type,</if>
+            <if test="cancelFlag != null">cancel_flag,</if>
+            <if test="statusFlag != null">status_flag,</if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="accountId != null">#{accountId},</if>
+            <if test="accountSubId != null">#{accountSubId},</if>
+            <if test="pbuId != null">#{pbuId},</if>
+            <if test="accountType != null">#{accountType},</if>
+            <if test="tradeType != null">#{tradeType},</if>
+            <if test="cancelFlag != null">#{cancelFlag},</if>
+            <if test="statusFlag != null">#{statusFlag},</if>
+        </trim>
+    </insert>
+
+    <update id="updateSseAccountInfo" parameterType="SseAccountInfo">
+        update sse_account_info
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="accountId != null">account_id = #{accountId},</if>
+            <if test="accountSubId != null">account_sub_id = #{accountSubId},</if>
+            <if test="pbuId != null">pbu_id = #{pbuId},</if>
+            <if test="accountType != null">account_type = #{accountType},</if>
+            <if test="tradeType != null">trade_type = #{tradeType},</if>
+            <if test="cancelFlag != null">cancel_flag = #{cancelFlag},</if>
+            <if test="statusFlag != null">status_flag = #{statusFlag},</if>
+        </trim>
+        where pk_id = #{pkId}
+    </update>
+
+    <delete id="deleteSseAccountInfoByPkId" parameterType="Long">
+        delete from sse_account_info where pk_id = #{pkId}
+    </delete>
+
+    <delete id="deleteSseAccountInfoByPkIds" parameterType="String">
+        delete from sse_account_info where pk_id in
+        <foreach item="pkId" collection="array" open="(" separator="," close=")">
+            #{pkId}
+        </foreach>
+    </delete>
+
+    <insert id="batchInsertSseAccountInfo" parameterType="java.util.List">
+        INSERT INTO sse_account_info (
+        account_id,
+        account_sub_id,
+        pbu_id,
+        account_type,
+        trade_type,
+        cancel_flag,
+        status_flag
+        ) VALUES
+        <foreach collection="list" item="item" separator=",">
+            (
+            #{item.accountId},
+            #{item.accountSubId},
+            #{item.pbuId},
+            #{item.accountType},
+            #{item.tradeType},
+            #{item.cancelFlag},
+            #{item.statusFlag}
+            )
+        </foreach>
+    </insert>
+
+    <delete id="clearSseAccountInfo" parameterType="String">
+        truncate table sse_account_info
+    </delete>
+
+
+    <select id="countPbuIdAccountNumber" parameterType="String" resultType="long">
+        select count(account_id) from sse_account_info where pbu_id = #{pbuId}
+    </select>
+
+    <select id="selectAccountListByPbuId" parameterType="map">
+        <!-- 假设查询 account_id 字段的前n条 -->
+        SELECT account_id
+        FROM sse_account_info
+        WHERE pbu_id = #{bizPbuId}
+        LIMIT #{accountPerPbu}  -- n是入参，控制返回的行数
+    </select>
+</mapper>

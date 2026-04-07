@@ -1,0 +1,30 @@
+-- smdata.sse_data_rule definition
+DROP table IF EXISTS `sse_data_rule`;
+CREATE TABLE `sse_data_rule` (
+  `pk_id` bigint NOT NULL AUTO_INCREMENT COMMENT '规则ID',
+  `rule_name` varchar(100) DEFAULT '' COMMENT '规则名称',
+  `rule_en_name` varchar(100) DEFAULT '' COMMENT '规则英文名称',
+  `order_total` bigint DEFAULT NULL COMMENT '订单总数',
+  `trade_type` varchar(200) DEFAULT NULL COMMENT '产品交易类型',
+  `business_type` varchar(200) DEFAULT NULL COMMENT '产品业务类型',
+  `security_sub_category` varchar(200) DEFAULT NULL COMMENT '证券子类别',
+  `product_set` varchar(300) DEFAULT NULL COMMENT '产品所属SET',
+  `match_method` varchar(400) DEFAULT NULL COMMENT '撮合方式',
+  `account_type` varchar(200) DEFAULT NULL COMMENT '账户类型',
+  `price_level` varchar(200) DEFAULT NULL COMMENT '价格档位',
+  `order_quantity` bigint DEFAULT NULL COMMENT '申报数量',
+  `trade_ratio` decimal(4,2) DEFAULT NULL COMMENT '成交比',
+  `pbu_count` int DEFAULT NULL COMMENT '业务PBU总数',
+  `bid_host`  varchar(100) DEFAULT NULL COMMENT '报盘主机',
+  `login_pbu`  bigint DEFAULT NULL COMMENT '登录pbu数量',
+  `business_pbu`  varchar(500) DEFAULT NULL COMMENT '业务pbu',
+  `performance_id` varchar(5) DEFAULT NULL COMMENT '性能场景',
+  `status` char(1) DEFAULT '0' COMMENT '状态',
+  `del_flag` char(1) DEFAULT '0' COMMENT '删除标志',
+  `create_by` varchar(64) DEFAULT '' COMMENT '创建者',
+  `create_time` datetime DEFAULT NULL COMMENT '创建时间',
+  `update_by` varchar(64) DEFAULT '' COMMENT '更新者',
+  `update_time` datetime DEFAULT NULL COMMENT '更新时间',
+  `remark` varchar(500) DEFAULT NULL COMMENT '备注',
+   PRIMARY KEY (`pk_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=100 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='规则信息表';

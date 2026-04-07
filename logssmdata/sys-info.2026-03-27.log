@@ -1,0 +1,354 @@
+09:46:21.733 [SpringApplicationShutdownHook] INFO  o.q.c.QuartzScheduler - [standby,585] - Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+09:46:23.571 [SpringApplicationShutdownHook] INFO  o.q.c.QuartzScheduler - [shutdown,666] - Scheduler quartzScheduler_$_NON_CLUSTERED shutting down.
+09:46:23.573 [SpringApplicationShutdownHook] INFO  o.q.c.QuartzScheduler - [standby,585] - Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+09:46:23.575 [SpringApplicationShutdownHook] INFO  o.q.c.QuartzScheduler - [shutdown,740] - Scheduler quartzScheduler_$_NON_CLUSTERED shutdown complete.
+09:46:23.577 [SpringApplicationShutdownHook] INFO  sys-user - [shutdownAsyncManager,31] - ====关闭后台任务任务线程池====
+09:46:23.596 [SpringApplicationShutdownHook] INFO  c.a.d.p.DruidDataSource - [close,2204] - {dataSource-1} closing ...
+09:46:23.605 [SpringApplicationShutdownHook] INFO  c.a.d.p.DruidDataSource - [close,2277] - {dataSource-1} closed
+09:46:39.202 [restartedMain] INFO  c.s.d.ShenMeiApplication - [logStarting,55] - Starting ShenMeiApplication using Java 1.8.0_65 on fan with PID 5752 (D:\Users\24517\Desktop\shenmei-datadriver-demo\shenmei-datadriver-demo\sm-data-admin\target\classes started by 24517 in D:\Users\24517\Desktop\shenmei-datadriver-demo\shenmei-datadriver-demo)
+09:46:39.201 [background-preinit] INFO  o.h.v.i.util.Version - [<clinit>,21] - HV000001: Hibernate Validator 6.2.5.Final
+09:46:39.221 [restartedMain] INFO  c.s.d.ShenMeiApplication - [logStartupProfileInfo,686] - The following 2 profiles are active: "druid", "dev"
+09:46:43.432 [restartedMain] INFO  o.a.c.h.Http11NioProtocol - [log,168] - Initializing ProtocolHandler ["http-nio-8080"]
+09:46:43.435 [restartedMain] INFO  o.a.c.c.StandardService - [log,168] - Starting service [Tomcat]
+09:46:43.435 [restartedMain] INFO  o.a.c.c.StandardEngine - [log,168] - Starting Servlet engine: [Apache Tomcat/9.0.106]
+09:46:43.640 [restartedMain] INFO  o.a.c.c.C.[.[.[/] - [log,168] - Initializing Spring embedded WebApplicationContext
+09:46:45.401 [restartedMain] INFO  c.a.d.p.DruidDataSource - [init,1002] - {dataSource-1} inited
+09:46:48.131 [restartedMain] INFO  o.q.i.StdSchedulerFactory - [instantiate,1220] - Using default implementation for ThreadExecutor
+09:46:48.158 [restartedMain] INFO  o.q.c.SchedulerSignalerImpl - [<init>,61] - Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+09:46:48.159 [restartedMain] INFO  o.q.c.QuartzScheduler - [<init>,229] - Quartz Scheduler v.2.3.2 created.
+09:46:48.160 [restartedMain] INFO  o.q.s.RAMJobStore - [initialize,155] - RAMJobStore initialized.
+09:46:48.163 [restartedMain] INFO  o.q.c.QuartzScheduler - [initialize,294] - Scheduler meta-data: Quartz Scheduler (v2.3.2) 'quartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+09:46:48.164 [restartedMain] INFO  o.q.i.StdSchedulerFactory - [instantiate,1374] - Quartz scheduler 'quartzScheduler' initialized from an externally provided properties instance.
+09:46:48.164 [restartedMain] INFO  o.q.i.StdSchedulerFactory - [instantiate,1378] - Quartz scheduler version: 2.3.2
+09:46:48.165 [restartedMain] INFO  o.q.c.QuartzScheduler - [setJobFactory,2293] - JobFactory set to: org.springframework.scheduling.quartz.SpringBeanJobFactory@195a21f
+09:46:51.227 [restartedMain] INFO  o.a.c.h.Http11NioProtocol - [log,168] - Starting ProtocolHandler ["http-nio-8080"]
+09:46:51.608 [restartedMain] INFO  o.q.c.QuartzScheduler - [start,547] - Scheduler quartzScheduler_$_NON_CLUSTERED started.
+09:46:51.617 [restartedMain] INFO  c.s.d.ShenMeiApplication - [logStarted,61] - Started ShenMeiApplication in 12.959 seconds (JVM running for 15.096)
+09:47:06.104 [http-nio-8080-exec-2] INFO  o.a.c.c.C.[.[.[/] - [log,168] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+09:47:14.429 [schedule-pool-1] INFO  sys-user - [run,55] - [127.0.0.1]内网IP[admin][Success][登录成功]
+09:47:27.758 [http-nio-8080-exec-22] INFO  c.s.d.s.d.r.RuleValidationService - [getSecuritySetQuantityMap,875] - setQuantityMap:{3=4, 4=4, 1=3, 2=3, 5=3, 6=3}
+09:47:27.778 [http-nio-8080-exec-22] INFO  c.s.d.s.d.r.RuleValidationService - [setSecuritySetQuantity,166] - 分配次数：1
+09:47:27.782 [http-nio-8080-exec-22] INFO  c.s.d.s.d.r.RuleValidationService - [setSecuritySetQuantity,212] - 股票类型二分配结果：{1=2, 2=2, 3=3, 4=3, 5=2, 6=2}
+09:47:27.786 [http-nio-8080-exec-22] INFO  c.s.d.s.d.r.RuleValidationService - [setSecuritySetQuantity,331] - 股票类型一比例分配结果：{1=1.42560000, 2=1.65060000, 3=1.25730000, 4=0.88470000, 5=2.10510000, 6=1.67670000}
+09:47:27.786 [http-nio-8080-exec-22] INFO  c.s.d.s.d.r.RuleValidationService - [setSecuritySetQuantity,332] - 股票类型二比例分配结果：{1=14.41440000, 2=16.68940000, 3=12.71270000, 4=8.94530000, 5=21.28490000, 6=16.95330000}
+09:47:27.787 [http-nio-8080-exec-22] INFO  c.s.d.s.d.r.RuleValidationService - [setSecuritySetQuantity,340] - 股票类型一比例总和：9.00000000
+09:47:27.787 [http-nio-8080-exec-22] INFO  c.s.d.s.d.r.RuleValidationService - [setSecuritySetQuantity,341] - 股票类型二比例总和：91.00000000
+09:47:27.788 [http-nio-8080-exec-22] INFO  c.s.d.s.d.r.RuleValidationService - [setSecuritySetQuantity,342] - 股票类型一原始比例：9
+09:47:27.788 [http-nio-8080-exec-22] INFO  c.s.d.s.d.r.RuleValidationService - [setSecuritySetQuantity,343] - 股票类型二原始比例：91
+09:47:27.789 [http-nio-8080-exec-22] INFO  c.s.d.s.d.r.RuleValidationService - [calcOrderSetQty,811] - 子类别：KSH,set 订单数量:{1=1426, 2=1651, 3=1258, 4=885, 5=2103, 6=1677}
+09:47:27.789 [http-nio-8080-exec-22] INFO  c.s.d.s.d.r.RuleValidationService - [calcOrderSetQty,811] - 子类别：ASH,set 订单数量:{1=14415, 2=16690, 3=12713, 4=8946, 5=21282, 6=16954}
+09:47:27.790 [http-nio-8080-exec-22] INFO  c.s.d.s.d.r.RuleValidationService - [calculateSingleSetMatchMethod,512] - SET1 (KSH) 原始撮合方式配置：撮合 key=05, 撮合比例=5.60000000% | 撤单 key=06, 撤单比例=1.90000000% | 废单 key=07, 废单比例=1.00000000% | 不撮合 key=08, 不撮合比例=0.30000000%
+09:47:27.791 [http-nio-8080-exec-22] INFO  c.s.d.s.d.r.RuleValidationService - [calculateSingleSetMatchMethod,545] - SET1 (KSH) 归一化后撮合方式比例：撮合=63.63636400% | 撤单=21.59091000% | 废单=11.36363700% | 不撮合=3.40909100%
+09:47:27.792 [http-nio-8080-exec-22] INFO  c.s.d.s.d.r.RuleValidationService - [calculateSingleSetMatchMethod,575] - SET1 (KSH) 撮合方式分布：废单=162, 不撮合=49, 撤单=308, 撮合=907, 总计=1426
+09:47:27.792 [http-nio-8080-exec-22] INFO  c.s.d.s.d.r.RuleValidationService - [calculateSingleSetMatchMethod,512] - SET2 (KSH) 原始撮合方式配置：撮合 key=05, 撮合比例=5.60000000% | 撤单 key=06, 撤单比例=1.90000000% | 废单 key=07, 废单比例=1.00000000% | 不撮合 key=08, 不撮合比例=0.30000000%
+09:47:27.793 [http-nio-8080-exec-22] INFO  c.s.d.s.d.r.RuleValidationService - [calculateSingleSetMatchMethod,545] - SET2 (KSH) 归一化后撮合方式比例：撮合=63.63636400% | 撤单=21.59091000% | 废单=11.36363700% | 不撮合=3.40909100%
+09:47:27.793 [http-nio-8080-exec-22] INFO  c.s.d.s.d.r.RuleValidationService - [calculateSingleSetMatchMethod,575] - SET2 (KSH) 撮合方式分布：废单=188, 不撮合=56, 撤单=356, 撮合=1051, 总计=1651
+09:47:27.794 [http-nio-8080-exec-22] INFO  c.s.d.s.d.r.RuleValidationService - [calculateSingleSetMatchMethod,512] - SET3 (KSH) 原始撮合方式配置：撮合 key=05, 撮合比例=5.60000000% | 撤单 key=06, 撤单比例=1.90000000% | 废单 key=07, 废单比例=1.00000000% | 不撮合 key=08, 不撮合比例=0.30000000%
+09:47:27.794 [http-nio-8080-exec-22] INFO  c.s.d.s.d.r.RuleValidationService - [calculateSingleSetMatchMethod,545] - SET3 (KSH) 归一化后撮合方式比例：撮合=63.63636400% | 撤单=21.59091000% | 废单=11.36363700% | 不撮合=3.40909100%
+09:47:27.794 [http-nio-8080-exec-22] INFO  c.s.d.s.d.r.RuleValidationService - [calculateSingleSetMatchMethod,575] - SET3 (KSH) 撮合方式分布：废单=143, 不撮合=43, 撤单=272, 撮合=800, 总计=1258
+09:47:27.795 [http-nio-8080-exec-22] INFO  c.s.d.s.d.r.RuleValidationService - [calculateSingleSetMatchMethod,512] - SET4 (KSH) 原始撮合方式配置：撮合 key=05, 撮合比例=5.60000000% | 撤单 key=06, 撤单比例=1.90000000% | 废单 key=07, 废单比例=1.00000000% | 不撮合 key=08, 不撮合比例=0.30000000%
+09:47:27.795 [http-nio-8080-exec-22] INFO  c.s.d.s.d.r.RuleValidationService - [calculateSingleSetMatchMethod,545] - SET4 (KSH) 归一化后撮合方式比例：撮合=63.63636400% | 撤单=21.59091000% | 废单=11.36363700% | 不撮合=3.40909100%
+09:47:27.795 [http-nio-8080-exec-22] INFO  c.s.d.s.d.r.RuleValidationService - [calculateSingleSetMatchMethod,575] - SET4 (KSH) 撮合方式分布：废单=101, 不撮合=30, 撤单=191, 撮合=563, 总计=885
+09:47:27.796 [http-nio-8080-exec-22] INFO  c.s.d.s.d.r.RuleValidationService - [calculateSingleSetMatchMethod,512] - SET5 (KSH) 原始撮合方式配置：撮合 key=05, 撮合比例=5.60000000% | 撤单 key=06, 撤单比例=1.90000000% | 废单 key=07, 废单比例=1.00000000% | 不撮合 key=08, 不撮合比例=0.30000000%
+09:47:27.796 [http-nio-8080-exec-22] INFO  c.s.d.s.d.r.RuleValidationService - [calculateSingleSetMatchMethod,545] - SET5 (KSH) 归一化后撮合方式比例：撮合=63.63636400% | 撤单=21.59091000% | 废单=11.36363700% | 不撮合=3.40909100%
+09:47:27.796 [http-nio-8080-exec-22] INFO  c.s.d.s.d.r.RuleValidationService - [calculateSingleSetMatchMethod,575] - SET5 (KSH) 撮合方式分布：废单=239, 不撮合=72, 撤单=455, 撮合=1340, 总计=2106
+09:47:27.797 [http-nio-8080-exec-22] INFO  c.s.d.s.d.r.RuleValidationService - [calculateSingleSetMatchMethod,512] - SET6 (KSH) 原始撮合方式配置：撮合 key=05, 撮合比例=5.60000000% | 撤单 key=06, 撤单比例=1.90000000% | 废单 key=07, 废单比例=1.00000000% | 不撮合 key=08, 不撮合比例=0.30000000%
+09:47:27.797 [http-nio-8080-exec-22] INFO  c.s.d.s.d.r.RuleValidationService - [calculateSingleSetMatchMethod,545] - SET6 (KSH) 归一化后撮合方式比例：撮合=63.63636400% | 撤单=21.59091000% | 废单=11.36363700% | 不撮合=3.40909100%
+09:47:27.798 [http-nio-8080-exec-22] INFO  c.s.d.s.d.r.RuleValidationService - [calculateSingleSetMatchMethod,575] - SET6 (KSH) 撮合方式分布：废单=191, 不撮合=57, 撤单=362, 撮合=1067, 总计=1677
+09:47:27.799 [http-nio-8080-exec-22] INFO  c.s.d.s.d.r.RuleValidationService - [adjustOrderQuantity,596] - 证券子类别 KSH 订单总数调整：预期=9000, 实际=9003, 差额=-3
+09:47:27.799 [http-nio-8080-exec-22] INFO  c.s.d.s.d.r.RuleValidationService - [adjustOrderQuantity,616] - 调整 SET5 的撮合订单数量：1340 -> 1337
+09:47:27.800 [http-nio-8080-exec-22] INFO  c.s.d.s.d.r.RuleValidationService - [calculateSingleSetMatchMethod,512] - SET1 (ASH) 原始撮合方式配置：撮合 key=01, 撮合比例=62.20000000% | 撤单 key=02, 撤单比例=15.00000000% | 废单 key=03, 废单比例=9.00000000% | 不撮合 key=04, 不撮合比例=5.00000000%
+09:47:27.800 [http-nio-8080-exec-22] INFO  c.s.d.s.d.r.RuleValidationService - [calculateSingleSetMatchMethod,545] - SET1 (ASH) 归一化后撮合方式比例：撮合=68.20175500% | 撤单=16.44736900% | 废单=9.86842200% | 不撮合=5.48245700%
+09:47:27.801 [http-nio-8080-exec-22] INFO  c.s.d.s.d.r.RuleValidationService - [calculateSingleSetMatchMethod,575] - SET1 (ASH) 撮合方式分布：废单=1423, 不撮合=790, 撤单=2371, 撮合=9831, 总计=14415
+09:47:27.801 [http-nio-8080-exec-22] INFO  c.s.d.s.d.r.RuleValidationService - [calculateSingleSetMatchMethod,512] - SET2 (ASH) 原始撮合方式配置：撮合 key=01, 撮合比例=62.20000000% | 撤单 key=02, 撤单比例=15.00000000% | 废单 key=03, 废单比例=9.00000000% | 不撮合 key=04, 不撮合比例=5.00000000%
+09:47:27.801 [http-nio-8080-exec-22] INFO  c.s.d.s.d.r.RuleValidationService - [calculateSingleSetMatchMethod,545] - SET2 (ASH) 归一化后撮合方式比例：撮合=68.20175500% | 撤单=16.44736900% | 废单=9.86842200% | 不撮合=5.48245700%
+09:47:27.801 [http-nio-8080-exec-22] INFO  c.s.d.s.d.r.RuleValidationService - [calculateSingleSetMatchMethod,575] - SET2 (ASH) 撮合方式分布：废单=1647, 不撮合=915, 撤单=2745, 撮合=11383, 总计=16690
+09:47:27.802 [http-nio-8080-exec-22] INFO  c.s.d.s.d.r.RuleValidationService - [calculateSingleSetMatchMethod,512] - SET3 (ASH) 原始撮合方式配置：撮合 key=01, 撮合比例=62.20000000% | 撤单 key=02, 撤单比例=15.00000000% | 废单 key=03, 废单比例=9.00000000% | 不撮合 key=04, 不撮合比例=5.00000000%
+09:47:27.802 [http-nio-8080-exec-22] INFO  c.s.d.s.d.r.RuleValidationService - [calculateSingleSetMatchMethod,545] - SET3 (ASH) 归一化后撮合方式比例：撮合=68.20175500% | 撤单=16.44736900% | 废单=9.86842200% | 不撮合=5.48245700%
+09:47:27.803 [http-nio-8080-exec-22] INFO  c.s.d.s.d.r.RuleValidationService - [calculateSingleSetMatchMethod,575] - SET3 (ASH) 撮合方式分布：废单=1255, 不撮合=697, 撤单=2091, 撮合=8670, 总计=12713
+09:47:27.803 [http-nio-8080-exec-22] INFO  c.s.d.s.d.r.RuleValidationService - [calculateSingleSetMatchMethod,512] - SET4 (ASH) 原始撮合方式配置：撮合 key=01, 撮合比例=62.20000000% | 撤单 key=02, 撤单比例=15.00000000% | 废单 key=03, 废单比例=9.00000000% | 不撮合 key=04, 不撮合比例=5.00000000%
+09:47:27.803 [http-nio-8080-exec-22] INFO  c.s.d.s.d.r.RuleValidationService - [calculateSingleSetMatchMethod,545] - SET4 (ASH) 归一化后撮合方式比例：撮合=68.20175500% | 撤单=16.44736900% | 废单=9.86842200% | 不撮合=5.48245700%
+09:47:27.803 [http-nio-8080-exec-22] INFO  c.s.d.s.d.r.RuleValidationService - [calculateSingleSetMatchMethod,575] - SET4 (ASH) 撮合方式分布：废单=883, 不撮合=490, 撤单=1471, 撮合=6102, 总计=8946
+09:47:27.804 [http-nio-8080-exec-22] INFO  c.s.d.s.d.r.RuleValidationService - [calculateSingleSetMatchMethod,512] - SET5 (ASH) 原始撮合方式配置：撮合 key=01, 撮合比例=62.20000000% | 撤单 key=02, 撤单比例=15.00000000% | 废单 key=03, 废单比例=9.00000000% | 不撮合 key=04, 不撮合比例=5.00000000%
+09:47:27.804 [http-nio-8080-exec-22] INFO  c.s.d.s.d.r.RuleValidationService - [calculateSingleSetMatchMethod,545] - SET5 (ASH) 归一化后撮合方式比例：撮合=68.20175500% | 撤单=16.44736900% | 废单=9.86842200% | 不撮合=5.48245700%
+09:47:27.805 [http-nio-8080-exec-22] INFO  c.s.d.s.d.r.RuleValidationService - [calculateSingleSetMatchMethod,575] - SET5 (ASH) 撮合方式分布：废单=2100, 不撮合=1167, 撤单=3501, 撮合=14517, 总计=21285
+09:47:27.805 [http-nio-8080-exec-22] INFO  c.s.d.s.d.r.RuleValidationService - [calculateSingleSetMatchMethod,512] - SET6 (ASH) 原始撮合方式配置：撮合 key=01, 撮合比例=62.20000000% | 撤单 key=02, 撤单比例=15.00000000% | 废单 key=03, 废单比例=9.00000000% | 不撮合 key=04, 不撮合比例=5.00000000%
+09:47:27.805 [http-nio-8080-exec-22] INFO  c.s.d.s.d.r.RuleValidationService - [calculateSingleSetMatchMethod,545] - SET6 (ASH) 归一化后撮合方式比例：撮合=68.20175500% | 撤单=16.44736900% | 废单=9.86842200% | 不撮合=5.48245700%
+09:47:27.806 [http-nio-8080-exec-22] INFO  c.s.d.s.d.r.RuleValidationService - [calculateSingleSetMatchMethod,575] - SET6 (ASH) 撮合方式分布：废单=1673, 不撮合=929, 撤单=2788, 撮合=11564, 总计=16954
+09:47:27.806 [http-nio-8080-exec-22] INFO  c.s.d.s.d.r.RuleValidationService - [adjustOrderQuantity,596] - 证券子类别 ASH 订单总数调整：预期=91000, 实际=91003, 差额=-3
+09:47:27.806 [http-nio-8080-exec-22] INFO  c.s.d.s.d.r.RuleValidationService - [adjustOrderQuantity,616] - 调整 SET5 的撮合订单数量：14517 -> 14514
+09:47:27.825 [http-nio-8080-exec-22] INFO  c.s.d.s.d.r.RuleValidationService - [allocateOrdersToSecurities,754] - SET1 (KSH) 股票订单分配：共1个股票，总计1426笔订单
+09:47:27.832 [http-nio-8080-exec-22] INFO  c.s.d.s.d.r.RuleValidationService - [allocateOrdersToSecurities,754] - SET2 (KSH) 股票订单分配：共1个股票，总计1651笔订单
+09:47:27.843 [http-nio-8080-exec-22] INFO  c.s.d.s.d.r.RuleValidationService - [allocateOrdersToSecurities,754] - SET3 (KSH) 股票订单分配：共1个股票，总计1258笔订单
+09:47:27.854 [http-nio-8080-exec-22] INFO  c.s.d.s.d.r.RuleValidationService - [allocateOrdersToSecurities,754] - SET4 (KSH) 股票订单分配：共1个股票，总计885笔订单
+09:47:27.860 [http-nio-8080-exec-22] INFO  c.s.d.s.d.r.RuleValidationService - [allocateOrdersToSecurities,754] - SET5 (KSH) 股票订单分配：共1个股票，总计2103笔订单
+09:47:27.866 [http-nio-8080-exec-22] INFO  c.s.d.s.d.r.RuleValidationService - [allocateOrdersToSecurities,754] - SET6 (KSH) 股票订单分配：共1个股票，总计1677笔订单
+09:47:27.874 [http-nio-8080-exec-22] INFO  c.s.d.s.d.r.RuleValidationService - [allocateOrdersToSecurities,754] - SET1 (ASH) 股票订单分配：共2个股票，总计14415笔订单
+09:47:27.882 [http-nio-8080-exec-22] INFO  c.s.d.s.d.r.RuleValidationService - [allocateOrdersToSecurities,754] - SET2 (ASH) 股票订单分配：共2个股票，总计16690笔订单
+09:47:27.891 [http-nio-8080-exec-22] INFO  c.s.d.s.d.r.RuleValidationService - [allocateOrdersToSecurities,754] - SET3 (ASH) 股票订单分配：共3个股票，总计12713笔订单
+09:47:27.899 [http-nio-8080-exec-22] INFO  c.s.d.s.d.r.RuleValidationService - [allocateOrdersToSecurities,754] - SET4 (ASH) 股票订单分配：共3个股票，总计8946笔订单
+09:47:27.906 [http-nio-8080-exec-22] INFO  c.s.d.s.d.r.RuleValidationService - [allocateOrdersToSecurities,754] - SET5 (ASH) 股票订单分配：共2个股票，总计21282笔订单
+09:47:27.922 [http-nio-8080-exec-22] INFO  c.s.d.s.d.r.RuleValidationService - [allocateOrdersToSecurities,754] - SET6 (ASH) 股票订单分配：共2个股票，总计16954笔订单
+09:47:27.923 [http-nio-8080-exec-22] INFO  c.s.d.s.d.r.RuleValidationService - [printAllocationDetail,959] - ==================== SET 股票分配详情 ====================
+09:47:27.923 [http-nio-8080-exec-22] INFO  c.s.d.s.d.r.RuleValidationService - [printAllocationDetail,961] - 证券子类别：KSH
+09:47:27.923 [http-nio-8080-exec-22] INFO  c.s.d.s.d.r.RuleValidationService - [printAllocationDetail,962] -   股票分配 JSON: {"1":{"quantity":1,"orderNumber":1426,"ratio":1.42560000},"2":{"quantity":1,"orderNumber":1651,"ratio":1.65060000},"3":{"quantity":1,"orderNumber":1258,"ratio":1.25730000},"4":{"quantity":1,"orderNumber":885,"ratio":0.88470000},"5":{"quantity":1,"orderNumber":2103,"ratio":2.10510000},"6":{"quantity":1,"orderNumber":1677,"ratio":1.67670000}}
+09:47:27.924 [http-nio-8080-exec-22] INFO  c.s.d.s.d.r.RuleValidationService - [printAllocationDetail,961] - 证券子类别：ASH
+09:47:27.924 [http-nio-8080-exec-22] INFO  c.s.d.s.d.r.RuleValidationService - [printAllocationDetail,962] -   股票分配 JSON: {"1":{"quantity":2,"orderNumber":14415,"ratio":14.41440000},"2":{"quantity":2,"orderNumber":16690,"ratio":16.68940000},"3":{"quantity":3,"orderNumber":12713,"ratio":12.71270000},"4":{"quantity":3,"orderNumber":8946,"ratio":8.94530000},"5":{"quantity":2,"orderNumber":21282,"ratio":21.28490000},"6":{"quantity":2,"orderNumber":16954,"ratio":16.95330000}}
+09:47:27.925 [http-nio-8080-exec-22] INFO  c.s.d.s.d.r.RuleValidationService - [printAllocationDetail,965] - ==================== SET 撮合方式分布详情 ====================
+09:47:27.925 [http-nio-8080-exec-22] INFO  c.s.d.s.d.r.RuleValidationService - [printAllocationDetail,967] - 证券子类别：KSH
+09:47:27.925 [http-nio-8080-exec-22] INFO  c.s.d.s.d.r.RuleValidationService - [printAllocationDetail,971] -   SET1: 废单=162, 不撮合=49, 撤单=308, 撮合=907, 总计=1426
+09:47:27.926 [http-nio-8080-exec-22] INFO  c.s.d.s.d.r.RuleValidationService - [printAllocationDetail,971] -   SET2: 废单=188, 不撮合=56, 撤单=356, 撮合=1051, 总计=1651
+09:47:27.926 [http-nio-8080-exec-22] INFO  c.s.d.s.d.r.RuleValidationService - [printAllocationDetail,971] -   SET3: 废单=143, 不撮合=43, 撤单=272, 撮合=800, 总计=1258
+09:47:27.926 [http-nio-8080-exec-22] INFO  c.s.d.s.d.r.RuleValidationService - [printAllocationDetail,971] -   SET4: 废单=101, 不撮合=30, 撤单=191, 撮合=563, 总计=885
+09:47:27.927 [http-nio-8080-exec-22] INFO  c.s.d.s.d.r.RuleValidationService - [printAllocationDetail,971] -   SET5: 废单=239, 不撮合=72, 撤单=455, 撮合=1337, 总计=2103
+09:47:27.927 [http-nio-8080-exec-22] INFO  c.s.d.s.d.r.RuleValidationService - [printAllocationDetail,971] -   SET6: 废单=191, 不撮合=57, 撤单=362, 撮合=1067, 总计=1677
+09:47:27.927 [http-nio-8080-exec-22] INFO  c.s.d.s.d.r.RuleValidationService - [printAllocationDetail,967] - 证券子类别：ASH
+09:47:27.928 [http-nio-8080-exec-22] INFO  c.s.d.s.d.r.RuleValidationService - [printAllocationDetail,971] -   SET1: 废单=1423, 不撮合=790, 撤单=2371, 撮合=9831, 总计=14415
+09:47:27.928 [http-nio-8080-exec-22] INFO  c.s.d.s.d.r.RuleValidationService - [printAllocationDetail,971] -   SET2: 废单=1647, 不撮合=915, 撤单=2745, 撮合=11383, 总计=16690
+09:47:27.928 [http-nio-8080-exec-22] INFO  c.s.d.s.d.r.RuleValidationService - [printAllocationDetail,971] -   SET3: 废单=1255, 不撮合=697, 撤单=2091, 撮合=8670, 总计=12713
+09:47:27.929 [http-nio-8080-exec-22] INFO  c.s.d.s.d.r.RuleValidationService - [printAllocationDetail,971] -   SET4: 废单=883, 不撮合=490, 撤单=1471, 撮合=6102, 总计=8946
+09:47:27.929 [http-nio-8080-exec-22] INFO  c.s.d.s.d.r.RuleValidationService - [printAllocationDetail,971] -   SET5: 废单=2100, 不撮合=1167, 撤单=3501, 撮合=14514, 总计=21282
+09:47:27.929 [http-nio-8080-exec-22] INFO  c.s.d.s.d.r.RuleValidationService - [printAllocationDetail,971] -   SET6: 废单=1673, 不撮合=929, 撤单=2788, 撮合=11564, 总计=16954
+09:47:27.930 [http-nio-8080-exec-22] INFO  c.s.d.s.d.r.RuleValidationService - [printAllocationDetail,979] - ==================== SET 内股票明细详情 ====================
+09:47:27.930 [http-nio-8080-exec-22] INFO  c.s.d.s.d.r.RuleValidationService - [printAllocationDetail,981] - 证券子类别：KSH
+09:47:27.930 [http-nio-8080-exec-22] INFO  c.s.d.s.d.r.RuleValidationService - [printAllocationDetail,985] -   SET1 (共1个股票):
+09:47:27.931 [http-nio-8080-exec-22] INFO  c.s.d.s.d.r.RuleValidationService - [printAllocationDetail,987] -     [1] 689003(689003): 废单=162, 不撮合=49, 撤单=308, 撮合=907, 总计=1426
+09:47:27.931 [http-nio-8080-exec-22] INFO  c.s.d.s.d.r.RuleValidationService - [printAllocationDetail,985] -   SET2 (共1个股票):
+09:47:27.932 [http-nio-8080-exec-22] INFO  c.s.d.s.d.r.RuleValidationService - [printAllocationDetail,987] -     [1] 689004(689004): 废单=188, 不撮合=56, 撤单=356, 撮合=1051, 总计=1651
+09:47:27.932 [http-nio-8080-exec-22] INFO  c.s.d.s.d.r.RuleValidationService - [printAllocationDetail,985] -   SET3 (共1个股票):
+09:47:27.933 [http-nio-8080-exec-22] INFO  c.s.d.s.d.r.RuleValidationService - [printAllocationDetail,987] -     [1] 689000(689000): 废单=143, 不撮合=43, 撤单=272, 撮合=800, 总计=1258
+09:47:27.933 [http-nio-8080-exec-22] INFO  c.s.d.s.d.r.RuleValidationService - [printAllocationDetail,985] -   SET4 (共1个股票):
+09:47:27.933 [http-nio-8080-exec-22] INFO  c.s.d.s.d.r.RuleValidationService - [printAllocationDetail,987] -     [1] 688340(688340): 废单=101, 不撮合=30, 撤单=191, 撮合=563, 总计=885
+09:47:27.934 [http-nio-8080-exec-22] INFO  c.s.d.s.d.r.RuleValidationService - [printAllocationDetail,985] -   SET5 (共1个股票):
+09:47:27.934 [http-nio-8080-exec-22] INFO  c.s.d.s.d.r.RuleValidationService - [printAllocationDetail,987] -     [1] 689001(689001): 废单=239, 不撮合=72, 撤单=455, 撮合=1337, 总计=2103
+09:47:27.934 [http-nio-8080-exec-22] INFO  c.s.d.s.d.r.RuleValidationService - [printAllocationDetail,985] -   SET6 (共1个股票):
+09:47:27.934 [http-nio-8080-exec-22] INFO  c.s.d.s.d.r.RuleValidationService - [printAllocationDetail,987] -     [1] 689002(689002): 废单=191, 不撮合=57, 撤单=362, 撮合=1067, 总计=1677
+09:47:27.935 [http-nio-8080-exec-22] INFO  c.s.d.s.d.r.RuleValidationService - [printAllocationDetail,981] - 证券子类别：ASH
+09:47:27.935 [http-nio-8080-exec-22] INFO  c.s.d.s.d.r.RuleValidationService - [printAllocationDetail,985] -   SET1 (共2个股票):
+09:47:27.936 [http-nio-8080-exec-22] INFO  c.s.d.s.d.r.RuleValidationService - [printAllocationDetail,987] -     [1] 中国联通(600050): 废单=712, 不撮合=395, 撤单=1186, 撮合=4916, 总计=7209
+09:47:27.936 [http-nio-8080-exec-22] INFO  c.s.d.s.d.r.RuleValidationService - [printAllocationDetail,987] -     [2] 宁波联合(600051): 废单=711, 不撮合=395, 撤单=1185, 撮合=4915, 总计=7206
+09:47:27.936 [http-nio-8080-exec-22] INFO  c.s.d.s.d.r.RuleValidationService - [printAllocationDetail,985] -   SET2 (共2个股票):
+09:47:27.937 [http-nio-8080-exec-22] INFO  c.s.d.s.d.r.RuleValidationService - [printAllocationDetail,987] -     [1] 中技贸易(600056): 废单=824, 不撮合=458, 撤单=1373, 撮合=5692, 总计=8347
+09:47:27.937 [http-nio-8080-exec-22] INFO  c.s.d.s.d.r.RuleValidationService - [printAllocationDetail,987] -     [2] 五矿发展(600058): 废单=823, 不撮合=457, 撤单=1372, 撮合=5691, 总计=8343
+09:47:27.937 [http-nio-8080-exec-22] INFO  c.s.d.s.d.r.RuleValidationService - [printAllocationDetail,985] -   SET3 (共3个股票):
+09:47:27.937 [http-nio-8080-exec-22] INFO  c.s.d.s.d.r.RuleValidationService - [printAllocationDetail,987] -     [1] S浙广厦(600052): 废单=419, 不撮合=233, 撤单=697, 撮合=2890, 总计=4239
+09:47:27.938 [http-nio-8080-exec-22] INFO  c.s.d.s.d.r.RuleValidationService - [printAllocationDetail,987] -     [2] 宇通客车(600066): 废单=418, 不撮合=232, 撤单=697, 撮合=2890, 总计=4237
+09:47:27.938 [http-nio-8080-exec-22] INFO  c.s.d.s.d.r.RuleValidationService - [printAllocationDetail,987] -     [3] 海泰发展(600082): 废单=418, 不撮合=232, 撤单=697, 撮合=2890, 总计=4237
+09:47:27.938 [http-nio-8080-exec-22] INFO  c.s.d.s.d.r.RuleValidationService - [printAllocationDetail,985] -   SET4 (共3个股票):
+09:47:27.938 [http-nio-8080-exec-22] INFO  c.s.d.s.d.r.RuleValidationService - [printAllocationDetail,987] -     [1] 海信电器(600060): 废单=295, 不撮合=164, 撤单=491, 撮合=2034, 总计=2984
+09:47:27.939 [http-nio-8080-exec-22] INFO  c.s.d.s.d.r.RuleValidationService - [printAllocationDetail,987] -     [2] 双鹤药业(600062): 废单=294, 不撮合=163, 撤单=490, 撮合=2034, 总计=2981
+09:47:27.939 [http-nio-8080-exec-22] INFO  c.s.d.s.d.r.RuleValidationService - [printAllocationDetail,987] -     [3] *ST联谊(600065): 废单=294, 不撮合=163, 撤单=490, 撮合=2034, 总计=2981
+09:47:27.939 [http-nio-8080-exec-22] INFO  c.s.d.s.d.r.RuleValidationService - [printAllocationDetail,985] -   SET5 (共2个股票):
+09:47:27.939 [http-nio-8080-exec-22] INFO  c.s.d.s.d.r.RuleValidationService - [printAllocationDetail,987] -     [1] 中江地产(600053): 废单=1050, 不撮合=584, 撤单=1751, 撮合=7257, 总计=10642
+09:47:27.940 [http-nio-8080-exec-22] INFO  c.s.d.s.d.r.RuleValidationService - [printAllocationDetail,987] -     [2] 黄山旅游(600054): 废单=1050, 不撮合=583, 撤单=1750, 撮合=7257, 总计=10640
+09:47:27.940 [http-nio-8080-exec-22] INFO  c.s.d.s.d.r.RuleValidationService - [printAllocationDetail,985] -   SET6 (共2个股票):
+09:47:27.940 [http-nio-8080-exec-22] INFO  c.s.d.s.d.r.RuleValidationService - [printAllocationDetail,987] -     [1] 保利地产(600048): 废单=837, 不撮合=465, 撤单=1394, 撮合=5782, 总计=8478
+09:47:27.940 [http-nio-8080-exec-22] INFO  c.s.d.s.d.r.RuleValidationService - [printAllocationDetail,987] -     [2] 夏新电子(600057): 废单=836, 不撮合=464, 撤单=1394, 撮合=5782, 总计=8476
+17:31:01.783 [Thread-5] INFO  o.q.c.QuartzScheduler - [standby,585] - Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+17:31:02.993 [Thread-5] INFO  o.q.c.QuartzScheduler - [shutdown,666] - Scheduler quartzScheduler_$_NON_CLUSTERED shutting down.
+17:31:02.995 [Thread-5] INFO  o.q.c.QuartzScheduler - [standby,585] - Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+17:31:02.995 [Thread-5] INFO  o.q.c.QuartzScheduler - [shutdown,740] - Scheduler quartzScheduler_$_NON_CLUSTERED shutdown complete.
+17:31:02.997 [Thread-5] INFO  sys-user - [shutdownAsyncManager,31] - ====关闭后台任务任务线程池====
+17:31:03.005 [Thread-5] INFO  c.a.d.p.DruidDataSource - [close,2204] - {dataSource-1} closing ...
+17:31:03.026 [Thread-5] INFO  c.a.d.p.DruidDataSource - [close,2277] - {dataSource-1} closed
+17:31:03.822 [restartedMain] INFO  c.s.d.ShenMeiApplication - [logStarting,55] - Starting ShenMeiApplication using Java 1.8.0_65 on fan with PID 5752 (D:\Users\24517\Desktop\shenmei-datadriver-demo\shenmei-datadriver-demo\sm-data-admin\target\classes started by 24517 in D:\Users\24517\Desktop\shenmei-datadriver-demo\shenmei-datadriver-demo)
+17:31:03.823 [restartedMain] INFO  c.s.d.ShenMeiApplication - [logStartupProfileInfo,686] - The following 2 profiles are active: "druid", "dev"
+17:31:07.362 [restartedMain] INFO  o.a.c.h.Http11NioProtocol - [log,168] - Initializing ProtocolHandler ["http-nio-8080"]
+17:31:07.362 [restartedMain] INFO  o.a.c.c.StandardService - [log,168] - Starting service [Tomcat]
+17:31:07.362 [restartedMain] INFO  o.a.c.c.StandardEngine - [log,168] - Starting Servlet engine: [Apache Tomcat/9.0.106]
+17:31:07.452 [restartedMain] INFO  o.a.c.c.C.[.[.[/] - [log,168] - Initializing Spring embedded WebApplicationContext
+17:31:08.550 [restartedMain] INFO  c.a.d.p.DruidDataSource - [init,1002] - {dataSource-2} inited
+17:31:10.985 [restartedMain] INFO  o.q.i.StdSchedulerFactory - [instantiate,1220] - Using default implementation for ThreadExecutor
+17:31:10.989 [restartedMain] INFO  o.q.c.SchedulerSignalerImpl - [<init>,61] - Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+17:31:10.989 [restartedMain] INFO  o.q.c.QuartzScheduler - [<init>,229] - Quartz Scheduler v.2.3.2 created.
+17:31:10.990 [restartedMain] INFO  o.q.s.RAMJobStore - [initialize,155] - RAMJobStore initialized.
+17:31:10.990 [restartedMain] INFO  o.q.c.QuartzScheduler - [initialize,294] - Scheduler meta-data: Quartz Scheduler (v2.3.2) 'quartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+17:31:10.991 [restartedMain] INFO  o.q.i.StdSchedulerFactory - [instantiate,1374] - Quartz scheduler 'quartzScheduler' initialized from an externally provided properties instance.
+17:31:10.992 [restartedMain] INFO  o.q.i.StdSchedulerFactory - [instantiate,1378] - Quartz scheduler version: 2.3.2
+17:31:10.992 [restartedMain] INFO  o.q.c.QuartzScheduler - [setJobFactory,2293] - JobFactory set to: org.springframework.scheduling.quartz.SpringBeanJobFactory@1a30935
+17:31:15.472 [restartedMain] INFO  o.a.c.h.Http11NioProtocol - [log,168] - Starting ProtocolHandler ["http-nio-8080"]
+17:31:15.774 [restartedMain] INFO  o.q.c.QuartzScheduler - [start,547] - Scheduler quartzScheduler_$_NON_CLUSTERED started.
+17:31:15.792 [restartedMain] INFO  c.s.d.ShenMeiApplication - [logStarted,61] - Started ShenMeiApplication in 12.142 seconds (JVM running for 27879.272)
+17:31:47.484 [Thread-9] INFO  o.q.c.QuartzScheduler - [standby,585] - Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+17:31:48.101 [Thread-9] INFO  o.q.c.QuartzScheduler - [shutdown,666] - Scheduler quartzScheduler_$_NON_CLUSTERED shutting down.
+17:31:48.102 [Thread-9] INFO  o.q.c.QuartzScheduler - [standby,585] - Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+17:31:48.103 [Thread-9] INFO  o.q.c.QuartzScheduler - [shutdown,740] - Scheduler quartzScheduler_$_NON_CLUSTERED shutdown complete.
+17:31:48.104 [Thread-9] INFO  sys-user - [shutdownAsyncManager,31] - ====关闭后台任务任务线程池====
+17:31:48.153 [Thread-9] INFO  c.a.d.p.DruidDataSource - [close,2204] - {dataSource-2} closing ...
+17:31:48.225 [Thread-9] INFO  c.a.d.p.DruidDataSource - [close,2277] - {dataSource-2} closed
+17:31:48.961 [restartedMain] INFO  c.s.d.ShenMeiApplication - [logStarting,55] - Starting ShenMeiApplication using Java 1.8.0_65 on fan with PID 5752 (D:\Users\24517\Desktop\shenmei-datadriver-demo\shenmei-datadriver-demo\sm-data-admin\target\classes started by 24517 in D:\Users\24517\Desktop\shenmei-datadriver-demo\shenmei-datadriver-demo)
+17:31:48.961 [restartedMain] INFO  c.s.d.ShenMeiApplication - [logStartupProfileInfo,686] - The following 2 profiles are active: "druid", "dev"
+17:31:52.374 [restartedMain] INFO  o.a.c.h.Http11NioProtocol - [log,168] - Initializing ProtocolHandler ["http-nio-8080"]
+17:31:52.375 [restartedMain] INFO  o.a.c.c.StandardService - [log,168] - Starting service [Tomcat]
+17:31:52.375 [restartedMain] INFO  o.a.c.c.StandardEngine - [log,168] - Starting Servlet engine: [Apache Tomcat/9.0.106]
+17:31:52.422 [restartedMain] INFO  o.a.c.c.C.[.[.[/] - [log,168] - Initializing Spring embedded WebApplicationContext
+17:31:52.953 [restartedMain] INFO  c.a.d.p.DruidDataSource - [init,1002] - {dataSource-3} inited
+17:31:54.222 [restartedMain] INFO  o.q.i.StdSchedulerFactory - [instantiate,1220] - Using default implementation for ThreadExecutor
+17:31:54.223 [restartedMain] INFO  o.q.c.SchedulerSignalerImpl - [<init>,61] - Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+17:31:54.224 [restartedMain] INFO  o.q.c.QuartzScheduler - [<init>,229] - Quartz Scheduler v.2.3.2 created.
+17:31:54.224 [restartedMain] INFO  o.q.s.RAMJobStore - [initialize,155] - RAMJobStore initialized.
+17:31:54.224 [restartedMain] INFO  o.q.c.QuartzScheduler - [initialize,294] - Scheduler meta-data: Quartz Scheduler (v2.3.2) 'quartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+17:31:54.224 [restartedMain] INFO  o.q.i.StdSchedulerFactory - [instantiate,1374] - Quartz scheduler 'quartzScheduler' initialized from an externally provided properties instance.
+17:31:54.224 [restartedMain] INFO  o.q.i.StdSchedulerFactory - [instantiate,1378] - Quartz scheduler version: 2.3.2
+17:31:54.224 [restartedMain] INFO  o.q.c.QuartzScheduler - [setJobFactory,2293] - JobFactory set to: org.springframework.scheduling.quartz.SpringBeanJobFactory@10030c5
+17:31:57.867 [restartedMain] INFO  o.a.c.h.Http11NioProtocol - [log,168] - Starting ProtocolHandler ["http-nio-8080"]
+17:31:58.083 [restartedMain] INFO  o.q.c.QuartzScheduler - [start,547] - Scheduler quartzScheduler_$_NON_CLUSTERED started.
+17:31:58.087 [restartedMain] INFO  c.s.d.ShenMeiApplication - [logStarted,61] - Started ShenMeiApplication in 9.321 seconds (JVM running for 27921.566)
+17:51:09.192 [SpringApplicationShutdownHook] INFO  o.q.c.QuartzScheduler - [standby,585] - Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+17:51:09.660 [SpringApplicationShutdownHook] INFO  o.q.c.QuartzScheduler - [shutdown,666] - Scheduler quartzScheduler_$_NON_CLUSTERED shutting down.
+17:51:09.660 [SpringApplicationShutdownHook] INFO  o.q.c.QuartzScheduler - [standby,585] - Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+17:51:09.660 [SpringApplicationShutdownHook] INFO  o.q.c.QuartzScheduler - [shutdown,740] - Scheduler quartzScheduler_$_NON_CLUSTERED shutdown complete.
+17:51:09.661 [SpringApplicationShutdownHook] INFO  sys-user - [shutdownAsyncManager,31] - ====关闭后台任务任务线程池====
+17:51:09.664 [SpringApplicationShutdownHook] INFO  c.a.d.p.DruidDataSource - [close,2204] - {dataSource-3} closing ...
+17:51:09.664 [SpringApplicationShutdownHook] INFO  c.a.d.p.DruidDataSource - [close,2277] - {dataSource-3} closed
+17:51:16.690 [restartedMain] INFO  c.s.d.ShenMeiApplication - [logStarting,55] - Starting ShenMeiApplication using Java 1.8.0_65 on fan with PID 25336 (D:\Users\24517\Desktop\shenmei-datadriver-demo\shenmei-datadriver-demo\sm-data-admin\target\classes started by 24517 in D:\Users\24517\Desktop\shenmei-datadriver-demo\shenmei-datadriver-demo)
+17:51:16.690 [background-preinit] INFO  o.h.v.i.util.Version - [<clinit>,21] - HV000001: Hibernate Validator 6.2.5.Final
+17:51:16.705 [restartedMain] INFO  c.s.d.ShenMeiApplication - [logStartupProfileInfo,686] - The following 2 profiles are active: "druid", "dev"
+17:51:19.692 [restartedMain] INFO  o.a.c.h.Http11NioProtocol - [log,168] - Initializing ProtocolHandler ["http-nio-8080"]
+17:51:19.694 [restartedMain] INFO  o.a.c.c.StandardService - [log,168] - Starting service [Tomcat]
+17:51:19.694 [restartedMain] INFO  o.a.c.c.StandardEngine - [log,168] - Starting Servlet engine: [Apache Tomcat/9.0.106]
+17:51:19.840 [restartedMain] INFO  o.a.c.c.C.[.[.[/] - [log,168] - Initializing Spring embedded WebApplicationContext
+17:51:21.123 [restartedMain] INFO  c.a.d.p.DruidDataSource - [init,1002] - {dataSource-1} inited
+17:51:23.587 [restartedMain] INFO  o.q.i.StdSchedulerFactory - [instantiate,1220] - Using default implementation for ThreadExecutor
+17:51:23.606 [restartedMain] INFO  o.q.c.SchedulerSignalerImpl - [<init>,61] - Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+17:51:23.606 [restartedMain] INFO  o.q.c.QuartzScheduler - [<init>,229] - Quartz Scheduler v.2.3.2 created.
+17:51:23.607 [restartedMain] INFO  o.q.s.RAMJobStore - [initialize,155] - RAMJobStore initialized.
+17:51:23.608 [restartedMain] INFO  o.q.c.QuartzScheduler - [initialize,294] - Scheduler meta-data: Quartz Scheduler (v2.3.2) 'quartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+17:51:23.608 [restartedMain] INFO  o.q.i.StdSchedulerFactory - [instantiate,1374] - Quartz scheduler 'quartzScheduler' initialized from an externally provided properties instance.
+17:51:23.608 [restartedMain] INFO  o.q.i.StdSchedulerFactory - [instantiate,1378] - Quartz scheduler version: 2.3.2
+17:51:23.608 [restartedMain] INFO  o.q.c.QuartzScheduler - [setJobFactory,2293] - JobFactory set to: org.springframework.scheduling.quartz.SpringBeanJobFactory@12ee32b
+17:51:26.061 [restartedMain] INFO  o.a.c.h.Http11NioProtocol - [log,168] - Starting ProtocolHandler ["http-nio-8080"]
+17:51:26.325 [restartedMain] INFO  o.q.c.QuartzScheduler - [start,547] - Scheduler quartzScheduler_$_NON_CLUSTERED started.
+17:51:26.331 [restartedMain] INFO  c.s.d.ShenMeiApplication - [logStarted,61] - Started ShenMeiApplication in 10.14 seconds (JVM running for 11.433)
+17:51:34.237 [http-nio-8080-exec-4] INFO  o.a.c.c.C.[.[.[/] - [log,168] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+17:51:41.097 [schedule-pool-1] INFO  sys-user - [run,55] - [127.0.0.1]内网IP[admin][Success][登录成功]
+17:53:45.134 [SpringApplicationShutdownHook] INFO  o.q.c.QuartzScheduler - [standby,585] - Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+17:53:45.507 [SpringApplicationShutdownHook] INFO  o.q.c.QuartzScheduler - [shutdown,666] - Scheduler quartzScheduler_$_NON_CLUSTERED shutting down.
+17:53:45.507 [SpringApplicationShutdownHook] INFO  o.q.c.QuartzScheduler - [standby,585] - Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+17:53:45.507 [SpringApplicationShutdownHook] INFO  o.q.c.QuartzScheduler - [shutdown,740] - Scheduler quartzScheduler_$_NON_CLUSTERED shutdown complete.
+17:53:45.508 [SpringApplicationShutdownHook] INFO  sys-user - [shutdownAsyncManager,31] - ====关闭后台任务任务线程池====
+17:53:45.510 [SpringApplicationShutdownHook] INFO  c.a.d.p.DruidDataSource - [close,2204] - {dataSource-1} closing ...
+17:53:45.609 [SpringApplicationShutdownHook] INFO  c.a.d.p.DruidDataSource - [close,2277] - {dataSource-1} closed
+17:53:50.714 [restartedMain] INFO  c.s.d.ShenMeiApplication - [logStarting,55] - Starting ShenMeiApplication using Java 1.8.0_65 on fan with PID 30040 (D:\Users\24517\Desktop\shenmei-datadriver-demo\shenmei-datadriver-demo\sm-data-admin\target\classes started by 24517 in D:\Users\24517\Desktop\shenmei-datadriver-demo\shenmei-datadriver-demo)
+17:53:50.714 [background-preinit] INFO  o.h.v.i.util.Version - [<clinit>,21] - HV000001: Hibernate Validator 6.2.5.Final
+17:53:50.731 [restartedMain] INFO  c.s.d.ShenMeiApplication - [logStartupProfileInfo,686] - The following 2 profiles are active: "druid", "dev"
+17:53:53.499 [restartedMain] INFO  o.a.c.h.Http11NioProtocol - [log,168] - Initializing ProtocolHandler ["http-nio-8080"]
+17:53:53.501 [restartedMain] INFO  o.a.c.c.StandardService - [log,168] - Starting service [Tomcat]
+17:53:53.501 [restartedMain] INFO  o.a.c.c.StandardEngine - [log,168] - Starting Servlet engine: [Apache Tomcat/9.0.106]
+17:53:53.632 [restartedMain] INFO  o.a.c.c.C.[.[.[/] - [log,168] - Initializing Spring embedded WebApplicationContext
+17:53:54.874 [restartedMain] INFO  c.a.d.p.DruidDataSource - [init,1002] - {dataSource-1} inited
+17:53:57.186 [restartedMain] INFO  o.q.i.StdSchedulerFactory - [instantiate,1220] - Using default implementation for ThreadExecutor
+17:53:57.197 [restartedMain] INFO  o.q.c.SchedulerSignalerImpl - [<init>,61] - Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+17:53:57.197 [restartedMain] INFO  o.q.c.QuartzScheduler - [<init>,229] - Quartz Scheduler v.2.3.2 created.
+17:53:57.198 [restartedMain] INFO  o.q.s.RAMJobStore - [initialize,155] - RAMJobStore initialized.
+17:53:57.199 [restartedMain] INFO  o.q.c.QuartzScheduler - [initialize,294] - Scheduler meta-data: Quartz Scheduler (v2.3.2) 'quartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+17:53:57.199 [restartedMain] INFO  o.q.i.StdSchedulerFactory - [instantiate,1374] - Quartz scheduler 'quartzScheduler' initialized from an externally provided properties instance.
+17:53:57.199 [restartedMain] INFO  o.q.i.StdSchedulerFactory - [instantiate,1378] - Quartz scheduler version: 2.3.2
+17:53:57.199 [restartedMain] INFO  o.q.c.QuartzScheduler - [setJobFactory,2293] - JobFactory set to: org.springframework.scheduling.quartz.SpringBeanJobFactory@aa85c2
+17:53:59.680 [restartedMain] INFO  o.a.c.h.Http11NioProtocol - [log,168] - Starting ProtocolHandler ["http-nio-8080"]
+17:53:59.956 [restartedMain] INFO  o.q.c.QuartzScheduler - [start,547] - Scheduler quartzScheduler_$_NON_CLUSTERED started.
+17:53:59.964 [restartedMain] INFO  c.s.d.ShenMeiApplication - [logStarted,61] - Started ShenMeiApplication in 9.715 seconds (JVM running for 10.883)
+17:54:08.790 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[.[.[/] - [log,168] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+17:55:04.787 [SpringApplicationShutdownHook] INFO  o.q.c.QuartzScheduler - [standby,585] - Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+17:55:05.108 [SpringApplicationShutdownHook] INFO  o.q.c.QuartzScheduler - [shutdown,666] - Scheduler quartzScheduler_$_NON_CLUSTERED shutting down.
+17:55:05.108 [SpringApplicationShutdownHook] INFO  o.q.c.QuartzScheduler - [standby,585] - Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+17:55:05.108 [SpringApplicationShutdownHook] INFO  o.q.c.QuartzScheduler - [shutdown,740] - Scheduler quartzScheduler_$_NON_CLUSTERED shutdown complete.
+17:55:05.109 [SpringApplicationShutdownHook] INFO  sys-user - [shutdownAsyncManager,31] - ====关闭后台任务任务线程池====
+17:55:05.112 [SpringApplicationShutdownHook] INFO  c.a.d.p.DruidDataSource - [close,2204] - {dataSource-1} closing ...
+17:55:05.114 [SpringApplicationShutdownHook] INFO  c.a.d.p.DruidDataSource - [close,2277] - {dataSource-1} closed
+17:55:09.895 [restartedMain] INFO  c.s.d.ShenMeiApplication - [logStarting,55] - Starting ShenMeiApplication using Java 1.8.0_65 on fan with PID 24660 (D:\Users\24517\Desktop\shenmei-datadriver-demo\shenmei-datadriver-demo\sm-data-admin\target\classes started by 24517 in D:\Users\24517\Desktop\shenmei-datadriver-demo\shenmei-datadriver-demo)
+17:55:09.898 [restartedMain] INFO  c.s.d.ShenMeiApplication - [logStartupProfileInfo,686] - The following 2 profiles are active: "druid", "dev"
+17:55:09.903 [background-preinit] INFO  o.h.v.i.util.Version - [<clinit>,21] - HV000001: Hibernate Validator 6.2.5.Final
+17:55:12.730 [restartedMain] INFO  o.a.c.h.Http11NioProtocol - [log,168] - Initializing ProtocolHandler ["http-nio-8080"]
+17:55:12.731 [restartedMain] INFO  o.a.c.c.StandardService - [log,168] - Starting service [Tomcat]
+17:55:12.732 [restartedMain] INFO  o.a.c.c.StandardEngine - [log,168] - Starting Servlet engine: [Apache Tomcat/9.0.106]
+17:55:12.860 [restartedMain] INFO  o.a.c.c.C.[.[.[/] - [log,168] - Initializing Spring embedded WebApplicationContext
+17:55:14.078 [restartedMain] INFO  c.a.d.p.DruidDataSource - [init,1002] - {dataSource-1} inited
+17:55:16.322 [restartedMain] INFO  o.q.i.StdSchedulerFactory - [instantiate,1220] - Using default implementation for ThreadExecutor
+17:55:16.334 [restartedMain] INFO  o.q.c.SchedulerSignalerImpl - [<init>,61] - Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+17:55:16.335 [restartedMain] INFO  o.q.c.QuartzScheduler - [<init>,229] - Quartz Scheduler v.2.3.2 created.
+17:55:16.335 [restartedMain] INFO  o.q.s.RAMJobStore - [initialize,155] - RAMJobStore initialized.
+17:55:16.336 [restartedMain] INFO  o.q.c.QuartzScheduler - [initialize,294] - Scheduler meta-data: Quartz Scheduler (v2.3.2) 'quartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+17:55:16.337 [restartedMain] INFO  o.q.i.StdSchedulerFactory - [instantiate,1374] - Quartz scheduler 'quartzScheduler' initialized from an externally provided properties instance.
+17:55:16.337 [restartedMain] INFO  o.q.i.StdSchedulerFactory - [instantiate,1378] - Quartz scheduler version: 2.3.2
+17:55:16.337 [restartedMain] INFO  o.q.c.QuartzScheduler - [setJobFactory,2293] - JobFactory set to: org.springframework.scheduling.quartz.SpringBeanJobFactory@6842ab
+17:55:18.713 [restartedMain] INFO  o.a.c.h.Http11NioProtocol - [log,168] - Starting ProtocolHandler ["http-nio-8080"]
+17:55:18.992 [restartedMain] INFO  o.q.c.QuartzScheduler - [start,547] - Scheduler quartzScheduler_$_NON_CLUSTERED started.
+17:55:18.999 [restartedMain] INFO  c.s.d.ShenMeiApplication - [logStarted,61] - Started ShenMeiApplication in 9.522 seconds (JVM running for 10.692)
+17:55:23.161 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[.[.[/] - [log,168] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+19:18:18.283 [SpringApplicationShutdownHook] INFO  o.q.c.QuartzScheduler - [standby,585] - Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+19:18:18.804 [SpringApplicationShutdownHook] INFO  o.q.c.QuartzScheduler - [shutdown,666] - Scheduler quartzScheduler_$_NON_CLUSTERED shutting down.
+19:18:18.804 [SpringApplicationShutdownHook] INFO  o.q.c.QuartzScheduler - [standby,585] - Scheduler quartzScheduler_$_NON_CLUSTERED paused.
+19:18:18.805 [SpringApplicationShutdownHook] INFO  o.q.c.QuartzScheduler - [shutdown,740] - Scheduler quartzScheduler_$_NON_CLUSTERED shutdown complete.
+19:18:18.805 [SpringApplicationShutdownHook] INFO  sys-user - [shutdownAsyncManager,31] - ====关闭后台任务任务线程池====
+19:18:18.808 [SpringApplicationShutdownHook] INFO  c.a.d.p.DruidDataSource - [close,2204] - {dataSource-1} closing ...
+19:18:18.810 [SpringApplicationShutdownHook] INFO  c.a.d.p.DruidDataSource - [close,2277] - {dataSource-1} closed
+19:18:24.360 [restartedMain] INFO  c.s.d.ShenMeiApplication - [logStarting,55] - Starting ShenMeiApplication using Java 1.8.0_65 on fan with PID 3852 (D:\Users\24517\Desktop\shenmei-datadriver-demo\shenmei-datadriver-demo\sm-data-admin\target\classes started by 24517 in D:\Users\24517\Desktop\shenmei-datadriver-demo\shenmei-datadriver-demo)
+19:18:24.360 [background-preinit] INFO  o.h.v.i.util.Version - [<clinit>,21] - HV000001: Hibernate Validator 6.2.5.Final
+19:18:24.376 [restartedMain] INFO  c.s.d.ShenMeiApplication - [logStartupProfileInfo,686] - The following 2 profiles are active: "druid", "dev"
+19:18:27.188 [restartedMain] INFO  o.a.c.h.Http11NioProtocol - [log,168] - Initializing ProtocolHandler ["http-nio-8080"]
+19:18:27.190 [restartedMain] INFO  o.a.c.c.StandardService - [log,168] - Starting service [Tomcat]
+19:18:27.190 [restartedMain] INFO  o.a.c.c.StandardEngine - [log,168] - Starting Servlet engine: [Apache Tomcat/9.0.106]
+19:18:27.311 [restartedMain] INFO  o.a.c.c.C.[.[.[/] - [log,168] - Initializing Spring embedded WebApplicationContext
+19:18:28.516 [restartedMain] INFO  c.a.d.p.DruidDataSource - [init,1002] - {dataSource-1} inited
+19:18:30.954 [restartedMain] INFO  o.q.i.StdSchedulerFactory - [instantiate,1220] - Using default implementation for ThreadExecutor
+19:18:30.967 [restartedMain] INFO  o.q.c.SchedulerSignalerImpl - [<init>,61] - Initialized Scheduler Signaller of type: class org.quartz.core.SchedulerSignalerImpl
+19:18:30.967 [restartedMain] INFO  o.q.c.QuartzScheduler - [<init>,229] - Quartz Scheduler v.2.3.2 created.
+19:18:30.968 [restartedMain] INFO  o.q.s.RAMJobStore - [initialize,155] - RAMJobStore initialized.
+19:18:30.969 [restartedMain] INFO  o.q.c.QuartzScheduler - [initialize,294] - Scheduler meta-data: Quartz Scheduler (v2.3.2) 'quartzScheduler' with instanceId 'NON_CLUSTERED'
+  Scheduler class: 'org.quartz.core.QuartzScheduler' - running locally.
+  NOT STARTED.
+  Currently in standby mode.
+  Number of jobs executed: 0
+  Using thread pool 'org.quartz.simpl.SimpleThreadPool' - with 10 threads.
+  Using job-store 'org.quartz.simpl.RAMJobStore' - which does not support persistence. and is not clustered.
+
+19:18:30.969 [restartedMain] INFO  o.q.i.StdSchedulerFactory - [instantiate,1374] - Quartz scheduler 'quartzScheduler' initialized from an externally provided properties instance.
+19:18:30.969 [restartedMain] INFO  o.q.i.StdSchedulerFactory - [instantiate,1378] - Quartz scheduler version: 2.3.2
+19:18:30.969 [restartedMain] INFO  o.q.c.QuartzScheduler - [setJobFactory,2293] - JobFactory set to: org.springframework.scheduling.quartz.SpringBeanJobFactory@8c97b1
+19:18:33.619 [restartedMain] INFO  o.a.c.h.Http11NioProtocol - [log,168] - Starting ProtocolHandler ["http-nio-8080"]
+19:18:33.931 [restartedMain] INFO  o.q.c.QuartzScheduler - [start,547] - Scheduler quartzScheduler_$_NON_CLUSTERED started.
+19:18:33.938 [restartedMain] INFO  c.s.d.ShenMeiApplication - [logStarted,61] - Started ShenMeiApplication in 10.072 seconds (JVM running for 11.364)
+19:18:40.128 [http-nio-8080-exec-1] INFO  o.a.c.c.C.[.[.[/] - [log,168] - Initializing Spring DispatcherServlet 'dispatcherServlet'

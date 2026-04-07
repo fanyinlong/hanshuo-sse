@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.shenmei.data.sse.mapper.SsePbuInfoMapper">
+    
+    <resultMap type="SsePbuInfo" id="SsePbuInfoResult">
+        <result property="pkId"    column="pk_id"    />
+        <result property="pbuId"    column="pbu_id"    />
+        <result property="mktId"    column="mkt_id"    />
+        <result property="pbuType"    column="pbu_type"    />
+        <result property="status"    column="status"    />
+        <result property="buyonMarginind"    column="buyon_marginInd"    />
+        <result property="sellonBorrowind"    column="sellon_borrowInd"    />
+        <result property="loginPwd"    column="login_pwd"    />
+        <result property="instituteId"    column="institute_id"    />
+        <result property="partitionId"    column="partition_id"    />
+        <result property="flowctrlValue"    column="flowctrl_value"    />
+        <result property="headPbuid"    column="head_pbuid"    />
+        <result property="clearMember"    column="clear_member"    />
+        <result property="membCert"    column="memb_cert"    />
+    </resultMap>
+
+    <sql id="selectSsePbuInfoVo">
+        select pk_id, pbu_id, mkt_id, pbu_type, status, buyon_marginInd, sellon_borrowInd, login_pwd, institute_id, partition_id, flowctrl_value, head_pbuid, clear_member, memb_cert from sse_pbu_info
+    </sql>
+
+    <select id="selectSsePbuInfoList" parameterType="SsePbuInfo" resultMap="SsePbuInfoResult">
+        <include refid="selectSsePbuInfoVo"/>
+        <where>  
+            <if test="pbuId != null  and pbuId != ''"> and pbu_id = #{pbuId}</if>
+            <if test="mktId != null  and mktId != ''"> and mkt_id = #{mktId}</if>
+            <if test="pbuType != null  and pbuType != ''"> and pbu_type = #{pbuType}</if>
+            <if test="status != null  and status != ''"> and status = #{status}</if>
+            <if test="buyonMarginind != null  and buyonMarginind != ''"> and buyon_marginInd = #{buyonMarginind}</if>
+            <if test="sellonBorrowind != null  and sellonBorrowind != ''"> and sellon_borrowInd = #{sellonBorrowind}</if>
+            <if test="loginPwd != null  and loginPwd != ''"> and login_pwd = #{loginPwd}</if>
+            <if test="instituteId != null  and instituteId != ''"> and institute_id = #{instituteId}</if>
+            <if test="partitionId != null "> and partition_id = #{partitionId}</if>
+            <if test="flowctrlValue != null "> and flowctrl_value = #{flowctrlValue}</if>
+            <if test="headPbuid != null  and headPbuid != ''"> and head_pbuid = #{headPbuid}</if>
+            <if test="clearMember != null  and clearMember != ''"> and clear_member = #{clearMember}</if>
+            <if test="membCert != null  and membCert != ''"> and memb_cert = #{membCert}</if>
+        </where>
+    </select>
+    
+    <select id="selectSsePbuInfoByPbuId" parameterType="String" resultMap="SsePbuInfoResult">
+        <include refid="selectSsePbuInfoVo"/>
+        where pbu_id = #{pbuId}
+    </select>
+
+    <insert id="insertSsePbuInfo" parameterType="SsePbuInfo">
+        insert into sse_pbu_info
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="pbuId != null">pbu_id,</if>
+            <if test="mktId != null">mkt_id,</if>
+            <if test="pbuType != null">pbu_type,</if>
+            <if test="status != null">status,</if>
+            <if test="buyonMarginind != null">buyon_marginInd,</if>
+            <if test="sellonBorrowind != null">sellon_borrowInd,</if>
+            <if test="loginPwd != null">login_pwd,</if>
+            <if test="instituteId != null">institute_id,</if>
+            <if test="partitionId != null">partition_id,</if>
+            <if test="flowctrlValue != null">flowctrl_value,</if>
+            <if test="headPbuid != null">head_pbuid,</if>
+            <if test="clearMember != null">clear_member,</if>
+            <if test="membCert != null">memb_cert,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="pbuId != null">#{pbuId},</if>
+            <if test="mktId != null">#{mktId},</if>
+            <if test="pbuType != null">#{pbuType},</if>
+            <if test="status != null">#{status},</if>
+            <if test="buyonMarginind != null">#{buyonMarginind},</if>
+            <if test="sellonBorrowind != null">#{sellonBorrowind},</if>
+            <if test="loginPwd != null">#{loginPwd},</if>
+            <if test="instituteId != null">#{instituteId},</if>
+            <if test="partitionId != null">#{partitionId},</if>
+            <if test="flowctrlValue != null">#{flowctrlValue},</if>
+            <if test="headPbuid != null">#{headPbuid},</if>
+            <if test="clearMember != null">#{clearMember},</if>
+            <if test="membCert != null">#{membCert},</if>
+         </trim>
+    </insert>
+
+    <update id="updateSsePbuInfo" parameterType="SsePbuInfo">
+        update sse_pbu_info
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="mktId != null">mkt_id = #{mktId},</if>
+            <if test="pbuType != null">pbu_type = #{pbuType},</if>
+            <if test="status != null">status = #{status},</if>
+            <if test="buyonMarginind != null">buyon_marginInd = #{buyonMarginind},</if>
+            <if test="sellonBorrowind != null">sellon_borrowInd = #{sellonBorrowind},</if>
+            <if test="loginPwd != null">login_pwd = #{loginPwd},</if>
+            <if test="instituteId != null">institute_id = #{instituteId},</if>
+            <if test="partitionId != null">partition_id = #{partitionId},</if>
+            <if test="flowctrlValue != null">flowctrl_value = #{flowctrlValue},</if>
+            <if test="headPbuid != null">head_pbuid = #{headPbuid},</if>
+            <if test="clearMember != null">clear_member = #{clearMember},</if>
+            <if test="membCert != null">memb_cert = #{membCert},</if>
+        </trim>
+        where pbu_id = #{pbuId}
+    </update>
+
+    <delete id="deleteSsePbuInfoByPbuId" parameterType="String">
+        delete from sse_pbu_info where pbu_id = #{pbuId}
+    </delete>
+
+    <delete id="deleteSsePbuInfoByPbuIds" parameterType="String">
+        delete from sse_pbu_info where pbu_id in 
+        <foreach item="pbuId" collection="array" open="(" separator="," close=")">
+            #{pbuId}
+        </foreach>
+    </delete>
+
+    <insert id="batchInsertSsePbuInfo" parameterType="java.util.List">
+        INSERT INTO sse_pbu_info (
+        pbu_id,
+        mkt_id,
+        pbu_type,
+        status,
+        buyon_marginInd,
+        sellon_borrowInd,
+        login_pwd,
+        institute_id,
+        partition_id,
+        flowctrl_value,
+        head_pbuid,
+        clear_member,
+        memb_cert
+        ) VALUES
+        <foreach collection="list" item="item" separator=",">
+            (
+            #{item.pbuId},
+            #{item.mktId},
+            #{item.pbuType},
+            #{item.status},
+            #{item.buyonMarginind},
+            #{item.sellonBorrowind},
+            #{item.loginPwd},
+            #{item.instituteId},
+            #{item.partitionId},
+            #{item.flowctrlValue},
+            #{item.headPbuid},
+            #{item.clearMember},
+            #{item.membCert}
+            )
+        </foreach>
+    </insert>
+
+    <delete id="clearSsePbuInfo" >
+        truncate table sse_pbu_info
+    </delete>
+
+    <select id="selectAllSsePbuIds" resultType="String">
+        select pbu_id from sse_pbu_info
+    </select>
+</mapper>

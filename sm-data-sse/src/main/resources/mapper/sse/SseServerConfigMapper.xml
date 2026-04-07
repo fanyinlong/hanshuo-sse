@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.shenmei.data.sse.mapper.SseServerConfigMapper">
+    
+    <resultMap type="SseServerConfig" id="SseServerConfigResult">
+        <result property="id"    column="id"    />
+        <result property="ruleId"    column="rule_id"    />
+        <result property="serverId"    column="server_id"    />
+        <result property="serverName"    column="server_name"    />
+        <result property="pbuCount"    column="pbu_count"    />
+        <result property="ruleVersion"    column="rule_version"    />
+        <result property="reverse"    column="reverse"    />
+    </resultMap>
+
+    <sql id="selectSseServerConfigVo">
+        select id, rule_id, server_id, server_name, pbu_count, rule_version, reverse from sse_server_config
+    </sql>
+
+    <select id="selectSseServerConfigList" parameterType="SseServerConfig" resultMap="SseServerConfigResult">
+        <include refid="selectSseServerConfigVo"/>
+        <where>  
+            <if test="ruleId != null "> and rule_id = #{ruleId}</if>
+            <if test="serverId != null "> and server_id = #{serverId}</if>
+            <if test="serverName != null  and serverName != ''"> and server_name like concat('%', #{serverName}, '%')</if>
+            <if test="pbuCount != null "> and pbu_count = #{pbuCount}</if>
+            <if test="ruleVersion != null  and ruleVersion != ''"> and rule_version = #{ruleVersion}</if>
+            <if test="reverse != null  and reverse != ''"> and reverse = #{reverse}</if>
+        </where>
+    </select>
+    
+    <select id="selectSseServerConfigById" parameterType="Long" resultMap="SseServerConfigResult">
+        <include refid="selectSseServerConfigVo"/>
+        where id = #{id}
+    </select>
+
+    <insert id="insertSseServerConfig" parameterType="SseServerConfig" useGeneratedKeys="true" keyProperty="id">
+        insert into sse_server_config
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="ruleId != null">rule_id,</if>
+            <if test="serverId != null">server_id,</if>
+            <if test="serverName != null">server_name,</if>
+            <if test="pbuCount != null">pbu_count,</if>
+            <if test="ruleVersion != null">rule_version,</if>
+            <if test="reverse != null">reverse,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="ruleId != null">#{ruleId},</if>
+            <if test="serverId != null">#{serverId},</if>
+            <if test="serverName != null">#{serverName},</if>
+            <if test="pbuCount != null">#{pbuCount},</if>
+            <if test="ruleVersion != null">#{ruleVersion},</if>
+            <if test="reverse != null">#{reverse},</if>
+         </trim>
+    </insert>
+
+    <update id="updateSseServerConfig" parameterType="SseServerConfig">
+        update sse_server_config
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="ruleId != null">rule_id = #{ruleId},</if>
+            <if test="serverId != null">server_id = #{serverId},</if>
+            <if test="serverName != null">server_name = #{serverName},</if>
+            <if test="pbuCount != null">pbu_count = #{pbuCount},</if>
+            <if test="ruleVersion != null">rule_version = #{ruleVersion},</if>
+            <if test="reverse != null">reverse = #{reverse},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteSseServerConfigById" parameterType="Long">
+        delete from sse_server_config where id = #{id}
+    </delete>
+
+    <delete id="deleteSseServerConfigByIds" parameterType="String">
+        delete from sse_server_config where id in 
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+
+    <select id="selectSseServerConfigByRuleId" parameterType="Long" resultMap="SseServerConfigResult">
+        <include refid="selectSseServerConfigVo"/>
+        where rule_id = #{id}
+    </select>
+</mapper>

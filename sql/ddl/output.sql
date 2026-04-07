@@ -1,0 +1,26 @@
+IF EXISTS(SELECT * FROM sysobjects WHERE NAME = '#plat#_#env#_#pbu#_OrderRequest')  DROP TABLE #plat#_#env#_#pbu#_OrderRequest
+    CREATE TABLE #plat#_#env#_#pbu#_OrderRequest (
+ ID  bigint primary key NOT NULL IDENTITY(1,1),
+ MsgType  bigint NULL,
+ BizID  bigint NULL,
+ BizPbu  nvarchar(8) NULL,
+ ClOrdID  nvarchar(10) NULL,
+ SecurityID  nvarchar(12) NULL,
+ Account  nvarchar(13) NULL,
+ OwnerType  int NULL,
+ Side  nvarchar(1) NULL,
+ Price  bigint NULL,
+ OrderQty  bigint NULL,
+ OrdType  nvarchar(1) NULL,
+ TimeInForce  nvarchar(1) NULL,
+ TransactTime  nvarchar(13) NULL ,
+ CreditTag  nvarchar(2) NULL,
+ ClearingFirm  nvarchar(8) NULL,
+ BranchID  nvarchar(8) NULL,
+ OrigClOrdID  nvarchar(10) NULL,
+ UserInfo  nvarchar(32) NULL,
+ ExtendFields  nvarchar(18) NULL,
+ ErrorCode  bigint NULL,
+ Status  int NULL,
+ SendStatus  nvarchar(2) NULL
+)

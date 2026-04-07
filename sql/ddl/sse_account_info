@@ -1,0 +1,14 @@
+drop table if exists sse_account_info;
+CREATE TABLE `sse_account_info` (
+                                    `pk_id` bigint NOT NULL AUTO_INCREMENT COMMENT '主键ID',
+                                    `account_id` char(10) DEFAULT NULL COMMENT '投资者账户',
+                                    `account_sub_id` char(10) DEFAULT NULL COMMENT '子账户',
+                                    `pbu_id` char(8) DEFAULT NULL COMMENT 'PBU编号',
+                                    `account_type` char(1) DEFAULT NULL COMMENT '账户类型',
+                                    `trade_type` char(1) DEFAULT NULL COMMENT '指定交易类型',
+                                    `cancel_flag` char(1) DEFAULT NULL COMMENT '账户能否撤销标识',
+                                    `status_flag` char(1) DEFAULT NULL COMMENT '账户状态标识',
+                                    PRIMARY KEY (`pk_id`),
+                                    KEY `sse_account_info_account_id_IDX` (`account_id`) USING BTREE,
+                                    KEY `idx_sse_account_info_pbu_acc` (`pbu_id`,`account_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=10001 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci COMMENT='账户信息表';

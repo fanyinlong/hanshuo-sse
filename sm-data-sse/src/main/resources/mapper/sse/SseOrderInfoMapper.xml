@@ -1,0 +1,272 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.shenmei.data.sse.mapper.SseOrderInfoMapper">
+
+    <resultMap type="SseOrderInfo" id="SseOrderInfoResult">
+        <result property="pkId"    column="pk_id"    />
+        <result property="msgHead"    column="msg_head"    />
+        <result property="bizId"    column="biz_id"    />
+        <result property="bizPbu"    column="biz_pbu"    />
+        <result property="clOrdId"    column="cl_ord_id"    />
+        <result property="securityId"    column="security_id"    />
+        <result property="account"    column="account"    />
+        <result property="ownerType"    column="owner_type"    />
+        <result property="side"    column="side"    />
+        <result property="price"    column="price"    />
+        <result property="orderQty"    column="order_qty"    />
+        <result property="ordType"    column="ord_type"    />
+        <result property="timeInForce"    column="time_in_force"    />
+        <result property="transactTime"    column="transact_time"    />
+        <result property="creditTag"    column="credit_tag"    />
+        <result property="clearingFirm"    column="clearing_firm"    />
+        <result property="branchId"    column="branch_id"    />
+        <result property="origClOrdId"    column="orig_cl_ord_id"    />
+        <result property="userInfo"    column="user_info"    />
+        <result property="extendFields"    column="extend_fields"    />
+        <result property="orderSet"    column="order_set"    />
+        <result property="orderMatching"    column="order_matching"    />
+        <result property="orderTable"    column="order_table"    />
+        <result property="orderServerId"    column="order_server_id"    />
+        <result property="ruleId"    column="rule_id"    />
+    </resultMap>
+
+    <sql id="selectSseOrderInfoVo">
+        select pk_id, msg_head, biz_id, biz_pbu, cl_ord_id, security_id, account, owner_type, side, price, order_qty, ord_type, time_in_force, transact_time, credit_tag, clearing_firm, branch_id, orig_cl_ord_id, user_info, extend_fields, order_set, order_matching, order_table, order_server_id,rule_id from sse_order_info
+    </sql>
+
+    <select id="selectSseOrderInfoList" parameterType="SseOrderInfo" resultMap="SseOrderInfoResult">
+        <include refid="selectSseOrderInfoVo"/>
+        <where>
+            <if test="bizPbu != null  and bizPbu != ''"> and biz_pbu = #{bizPbu}</if>
+            <if test="clOrdId != null  and clOrdId != ''"> and cl_ord_id = #{clOrdId}</if>
+            <if test="securityId != null  and securityId != ''"> and security_id = #{securityId}</if>
+            <if test="account != null  and account != ''"> and account = #{account}</if>
+            <if test="side != null  and side != ''"> and side = #{side}</if>
+            <if test="price != null "> and price = #{price}</if>
+            <if test="orderQty != null "> and order_qty = #{orderQty}</if>
+            <if test="ordType != null  and ordType != ''"> and ord_type = #{ordType}</if>
+            <if test="timeInForce != null  and timeInForce != ''"> and time_in_force = #{timeInForce}</if>
+            <if test="origClOrdId != null  and origClOrdId != ''"> and orig_cl_ord_id = #{origClOrdId}</if>
+            <if test="orderSet != null  and orderSet != ''"> and order_set = #{orderSet}</if>
+            <if test="orderMatching != null  and orderMatching != ''"> and order_matching = #{orderMatching}</if>
+            <if test="orderTable != null  and orderTable != ''"> and order_table = #{orderTable}</if>
+            <if test="orderServerId != null "> and order_server_id = #{orderServerId}</if>
+            <if test="ruleId != null "> and rule_id = #{ruleId}</if>
+        </where>
+    </select>
+
+    <select id="selectSseOrderInfoByPkId" parameterType="Long" resultMap="SseOrderInfoResult">
+        <include refid="selectSseOrderInfoVo"/>
+        where pk_id = #{pkId}
+    </select>
+
+    <insert id="insertSseOrderInfo" parameterType="SseOrderInfo" useGeneratedKeys="true" keyProperty="pkId">
+        insert into sse_order_info
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="msgHead != null">msg_head,</if>
+            <if test="bizId != null">biz_id,</if>
+            <if test="bizPbu != null">biz_pbu,</if>
+            <if test="clOrdId != null">cl_ord_id,</if>
+            <if test="securityId != null and securityId != ''">security_id,</if>
+            <if test="account != null and account != ''">account,</if>
+            <if test="ownerType != null">owner_type,</if>
+            <if test="side != null">side,</if>
+            <if test="price != null">price,</if>
+            <if test="orderQty != null">order_qty,</if>
+            <if test="ordType != null">ord_type,</if>
+            <if test="timeInForce != null">time_in_force,</if>
+            <if test="transactTime != null">transact_time,</if>
+            <if test="creditTag != null">credit_tag,</if>
+            <if test="clearingFirm != null">clearing_firm,</if>
+            <if test="branchId != null">branch_id,</if>
+            <if test="origClOrdId != null">orig_cl_ord_id,</if>
+            <if test="userInfo != null">user_info,</if>
+            <if test="extendFields != null">extend_fields,</if>
+            <if test="orderSet != null">order_set,</if>
+            <if test="orderMatching != null">order_matching,</if>
+            <if test="orderTable != null">order_table,</if>
+            <if test="orderServerId != null">order_server_id,</if>
+            <if test="ruleId != null">rule_id,</if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="msgHead != null">#{msgHead},</if>
+            <if test="bizId != null">#{bizId},</if>
+            <if test="bizPbu != null">#{bizPbu},</if>
+            <if test="clOrdId != null">#{clOrdId},</if>
+            <if test="securityId != null and securityId != ''">#{securityId},</if>
+            <if test="account != null and account != ''">#{account},</if>
+            <if test="ownerType != null">#{ownerType},</if>
+            <if test="side != null">#{side},</if>
+            <if test="price != null">#{price},</if>
+            <if test="orderQty != null">#{orderQty},</if>
+            <if test="ordType != null">#{ordType},</if>
+            <if test="timeInForce != null">#{timeInForce},</if>
+            <if test="transactTime != null">#{transactTime},</if>
+            <if test="creditTag != null">#{creditTag},</if>
+            <if test="clearingFirm != null">#{clearingFirm},</if>
+            <if test="branchId != null">#{branchId},</if>
+            <if test="origClOrdId != null">#{origClOrdId},</if>
+            <if test="userInfo != null">#{userInfo},</if>
+            <if test="extendFields != null">#{extendFields},</if>
+            <if test="orderSet != null">#{orderSet},</if>
+            <if test="orderMatching != null">#{orderMatching},</if>
+            <if test="orderTable != null">#{orderTable},</if>
+            <if test="orderServerId != null">#{orderServerId},</if>
+            <if test="ruleId != null">#{ruleId},</if>
+        </trim>
+    </insert>
+
+    <update id="updateSseOrderInfo" parameterType="SseOrderInfo">
+        update sse_order_info
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="msgHead != null">msg_head = #{msgHead},</if>
+            <if test="bizId != null">biz_id = #{bizId},</if>
+            <if test="bizPbu != null">biz_pbu = #{bizPbu},</if>
+            <if test="clOrdId != null">cl_ord_id = #{clOrdId},</if>
+            <if test="securityId != null and securityId != ''">security_id = #{securityId},</if>
+            <if test="account != null and account != ''">account = #{account},</if>
+            <if test="ownerType != null">owner_type = #{ownerType},</if>
+            <if test="side != null">side = #{side},</if>
+            <if test="price != null">price = #{price},</if>
+            <if test="orderQty != null">order_qty = #{orderQty},</if>
+            <if test="ordType != null">ord_type = #{ordType},</if>
+            <if test="timeInForce != null">time_in_force = #{timeInForce},</if>
+            <if test="transactTime != null">transact_time = #{transactTime},</if>
+            <if test="creditTag != null">credit_tag = #{creditTag},</if>
+            <if test="clearingFirm != null">clearing_firm = #{clearingFirm},</if>
+            <if test="branchId != null">branch_id = #{branchId},</if>
+            <if test="origClOrdId != null">orig_cl_ord_id = #{origClOrdId},</if>
+            <if test="userInfo != null">user_info = #{userInfo},</if>
+            <if test="extendFields != null">extend_fields = #{extendFields},</if>
+            <if test="orderSet != null">order_set = #{orderSet},</if>
+            <if test="orderMatching != null">order_matching = #{orderMatching},</if>
+            <if test="orderTable != null">order_table = #{orderTable},</if>
+            <if test="orderServerId != null">order_server_id = #{orderServerId},</if>
+            <if test="ruleId != null">rule_id = #{ruleId},</if>
+        </trim>
+        where pk_id = #{pkId}
+    </update>
+
+    <delete id="deleteSseOrderInfoByPkId" parameterType="Long">
+        delete from sse_order_info where pk_id = #{pkId}
+    </delete>
+
+    <delete id="deleteSseOrderInfoByRuleId" parameterType="Long">
+        delete from sse_order_info where rule_id = #{ruleId}
+    </delete>
+
+    <delete id="deleteSseOrderInfoByPkIds" parameterType="String">
+        delete from sse_order_info where pk_id in
+        <foreach item="pkId" collection="array" open="(" separator="," close=")">
+            #{pkId}
+        </foreach>
+    </delete>
+
+    <insert id="batchInsertSseOrderInfo" parameterType="java.util.List" useGeneratedKeys="true" keyProperty="pkId">
+        INSERT INTO sse_order_info (
+        msg_head,
+        biz_id,
+        biz_pbu,
+        cl_ord_id,
+        security_id,
+        account,
+        owner_type,
+        side,
+        price,
+        order_qty,
+        ord_type,
+        time_in_force,
+        transact_time,
+        credit_tag,
+        clearing_firm,
+        branch_id,
+        orig_cl_ord_id,
+        user_info,
+        extend_fields,
+        order_set,
+        order_matching,
+        order_table,
+        rule_id
+        ) VALUES
+        <foreach collection="list" item="item" separator=",">
+            (
+            #{item.msgHead},
+            #{item.bizId},
+            #{item.bizPbu},
+            #{item.clOrdId},
+            #{item.securityId},
+            #{item.account},
+            #{item.ownerType},
+            #{item.side},
+            #{item.price},
+            #{item.orderQty},
+            #{item.ordType},
+            #{item.timeInForce},
+            #{item.transactTime},
+            #{item.creditTag},
+            #{item.clearingFirm},
+            #{item.branchId},
+            #{item.origClOrdId},
+            #{item.userInfo},
+            #{item.extendFields},
+            #{item.orderSet},
+            #{item.orderMatching},
+            #{item.orderTable},
+            #{item.ruleId}
+            )
+        </foreach>
+    </insert>
+
+    <select id="selectOrderTableListByRuleId" parameterType="Long" >
+        select distinct order_table from sse_order_info where rule_id = #{ruleId}
+    </select>
+
+    <select id="selectStatsListByRuleId" parameterType="map" >
+        select distinct ${category} from sse_order_info where rule_id = #{ruleId}
+    </select>
+
+    <select id="selectAccountBySecurityId" parameterType="map" >
+        select distinct account from sse_order_info where rule_id = #{ruleId} and security_id = #{securityId}
+    </select>
+
+    <select id="countTotalOrderNumberByRuleId" parameterType="long" resultType="long">
+        select count(pk_id) from sse_order_info where rule_id = #{ruleId}
+    </select>
+
+    <select id="countOrderNumbersBySseOrderInfo" parameterType="SseOrderInfo" resultType="long">
+        select count(pk_id) from sse_order_info
+        <where>
+            <if test="bizPbu != null  and bizPbu != ''"> and biz_pbu = #{bizPbu}</if>
+            <if test="clOrdId != null  and clOrdId != ''"> and cl_ord_id = #{clOrdId}</if>
+            <if test="securityId != null  and securityId != ''"> and security_id = #{securityId}</if>
+            <if test="account != null  and account != ''"> and account = #{account}</if>
+            <if test="side != null  and side != ''"> and side = #{side}</if>
+            <if test="price != null "> and price = #{price}</if>
+            <if test="orderQty != null "> and order_qty = #{orderQty}</if>
+            <if test="ordType != null  and ordType != ''"> and ord_type = #{ordType}</if>
+            <if test="timeInForce != null  and timeInForce != ''"> and time_in_force = #{timeInForce}</if>
+            <if test="origClOrdId != null  and origClOrdId != ''"> and orig_cl_ord_id = #{origClOrdId}</if>
+            <if test="orderSet != null  and orderSet != ''"> and order_set = #{orderSet}</if>
+            <if test="orderMatching != null  and orderMatching != ''"> and order_matching = #{orderMatching}</if>
+            <if test="orderTable != null  and orderTable != ''"> and order_table = #{orderTable}</if>
+            <if test="orderServerId != null "> and order_server_id = #{orderServerId}</if>
+            <if test="ruleId != null "> and rule_id = #{ruleId}</if>
+        </where>
+    </select>
+
+    <select id="selectSseOrderInfoListByPage" resultMap="SseOrderInfoResult">
+        <include refid="selectSseOrderInfoVo"/>
+        <where>
+            <!-- 原有查询条件 -->
+            <if test="query.ruleId != null">AND rule_id = #{query.ruleId}</if>
+            <if test="query.orderTable != null">AND order_table = #{query.orderTable}</if>
+            <!-- 其他条件... -->
+        </where>
+        <!-- 排序字段确保分页一致性 -->
+        ORDER BY pk_id ASC
+        <!-- 分页核心：偏移量和限制条数 -->
+        LIMIT #{offset}, #{limit}
+    </select>
+</mapper>

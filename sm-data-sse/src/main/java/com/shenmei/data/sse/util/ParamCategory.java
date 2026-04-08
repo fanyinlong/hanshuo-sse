@@ -2,9 +2,8 @@ package com.shenmei.data.sse.util;
 
 public enum ParamCategory {
 
-    RATIO("比例","RATIO"),BASIC("基础","BASIC"),
-    EXEC("执行","EXEC"),DIST("分布","DIST"),
-    RULE("规则","RULE");
+    PRODUCT("产品","PRODUCT"),BASIC("基础","BASIC"),
+    TRADE("交易","TRADE");
 
     private String name;
     private String value;

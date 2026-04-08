@@ -103,10 +103,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         delete from sse_model where model_id = #{modelId}
     </delete>
 
-    <delete id="deleteSseModelByModelIds" parameterType="String">
-        delete from sse_model where model_id in 
+    <update id="deleteSseModelByModelIds" parameterType="String">
+        update sse_model set del_flag = '1'  where model_id in
         <foreach item="modelId" collection="array" open="(" separator="," close=")">
             #{modelId}
         </foreach>
-    </delete>
+    </update>
 </mapper>

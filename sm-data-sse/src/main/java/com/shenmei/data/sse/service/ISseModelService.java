@@ -65,4 +65,6 @@ public interface ISseModelService
 
     public ModelDo getModel(String modelId);
 
+    public int setStatus(String modelId,String status);
+
 }

@@ -97,16 +97,39 @@ public class SseModelController extends BaseController {
         return toAjax(sseModelService.deleteSseModelByModelIds(modelIds));
     }
 
+    /**
+     * 新增显示页面
+     * @return
+     */
     @PreAuthorize("@ss.hasPermi('sse:model:addShow')")
     @GetMapping("addShow")
     public AjaxResult addShow() {
         return success(sseModelService.getParamList());
     }
 
+    /**
+     * 更新显示页面
+     * @param modelId
+     * @return
+     */
     @PreAuthorize("@ss.hasPermi('sse:model:edit')")
     @GetMapping("updateShow/{modelId}")
     public AjaxResult updateShow(@PathVariable String modelId) {
         return success(sseModelService.getModel(modelId));
+    }
+
+
+    /**
+     * 启用(status-传0)/停用(status-传1)
+     * @param modelId
+     * @param status
+     * @return
+     */
+    @PreAuthorize("@ss.hasPermi('sse:model:setStatus')")
+    @GetMapping("setStatus/{modelId}/{status}")
+    public AjaxResult setStatus(@PathVariable String modelId,
+                                @PathVariable String status) {
+        return toAjax(sseModelService.setStatus(modelId,status));
     }
 
 

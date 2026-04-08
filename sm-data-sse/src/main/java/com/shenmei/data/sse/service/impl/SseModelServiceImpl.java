@@ -213,6 +213,18 @@ public class SseModelServiceImpl implements ISseModelService
         return null;
     }
 
+    @Override
+    public int setStatus(String modelId, String status) {
+        SseModel model = sseModelMapper.selectSseModelByModelId(modelId);
+        if(model!=null){
+            model.setStatus(status);
+            model.setUpdateTime(DateUtils.getNowDate());
+            sseModelMapper.updateSseModel(model);
+            return 1;
+        }
+        return 0;
+    }
+
     private void insertModelParam(List<ModelAddDo> list,int modelId){
         for(ModelAddDo modelAddDo : list){
             List<ParamDo>  paraList = modelAddDo.getParamList();

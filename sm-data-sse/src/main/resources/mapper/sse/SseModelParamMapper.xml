@@ -117,4 +117,8 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             #{id}
         </foreach>
     </delete>
+
+    <delete id="deleteSseModelParamByModelId" parameterType="String">
+        delete from sse_model_param where model_id = #{modelId}
+    </delete>
 </mapper>

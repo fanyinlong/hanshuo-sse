@@ -8,6 +8,8 @@ target/
 *.zip
 *.tar.gz
 *.rar
+logssmdata/
+*.log
 logs/
 *.log
 *.tmp

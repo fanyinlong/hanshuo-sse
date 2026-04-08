@@ -70,10 +70,40 @@ public class SseModelServiceImpl implements ISseModelService
      * @return 结果
      */
     @Override
-    public int insertSseModel(SseModel sseModel)
+    public int insertSseModel(ModelDo sseModel)
     {
-        sseModel.setCreateTime(DateUtils.getNowDate());
-        return sseModelMapper.insertSseModel(sseModel);
+        /*sseModel.setCreateTime(DateUtils.getNowDate());
+        return sseModelMapper.insertSseModel(sseModel);*/
+        if(sseModel.getModelId()!=null){
+            //更新
+            SseModel model = sseModelMapper.selectSseModelByModelId(sseModel.getModelId());
+            if(model!=null){
+                model.setDescription(sseModel.getDescription());
+                model.setModelName(sseModel.getModelName());
+                model.setUpdateTime(DateUtils.getNowDate());
+                sseModelMapper.updateSseModel(model);
+
+            }
+            sseModelParamMapper.deleteSseModelParamByModelId(sseModel.getModelId());
+            if(sseModel.getModelAddDoList()!=null && sseModel.getModelAddDoList().size()>0){
+                insertModelParam(sseModel.getModelAddDoList(),model.getModelId());
+
+            }
+
+
+        }else{
+            //新增
+            SseModel model= new SseModel();
+            model.setDescription(sseModel.getDescription());
+            model.setModelName(sseModel.getModelName());
+            model.setCreateTime(DateUtils.getNowDate());
+            sseModelMapper.insertSseModel(model);
+            if(sseModel.getModelAddDoList()!=null && sseModel.getModelAddDoList().size()>0){
+                insertModelParam(sseModel.getModelAddDoList(),model.getModelId());
+            }
+        }
+
+        return 1;
     }
 
     /**
@@ -145,7 +175,7 @@ public class SseModelServiceImpl implements ISseModelService
         SseModel model = sseModelMapper.selectSseModelByModelId(modelId);
         if(model!=null){
             ModelDo modelDo = new ModelDo();
-            modelDo.setModelId(model.getModelId());
+            modelDo.setModelId(String.valueOf(model.getModelId()));
             modelDo.setModelName(model.getModelName());
             modelDo.setDescription(model.getDescription());
             SseModelParam modelParam = new SseModelParam();
@@ -181,5 +211,21 @@ public class SseModelServiceImpl implements ISseModelService
 
         }
         return null;
+    }
+
+    private void insertModelParam(List<ModelAddDo> list,int modelId){
+        for(ModelAddDo modelAddDo : list){
+            List<ParamDo>  paraList = modelAddDo.getParamList();
+            for(ParamDo paramDo : paraList){
+
+                SseModelParam modelParam = new SseModelParam();
+                modelParam.setModelId(String.valueOf(modelId));
+                modelParam.setParamId(paramDo.getParamValue());
+                modelParam.setCreateTime(DateUtils.getNowDate());
+                sseModelParamMapper.insertSseModelParam(modelParam);
+            }
+
+
+        }
     }
 }

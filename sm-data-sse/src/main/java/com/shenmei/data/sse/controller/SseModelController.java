@@ -9,6 +9,7 @@ import com.shenmei.data.common.core.domain.AjaxResult;
 import com.shenmei.data.common.core.page.TableDataInfo;
 import com.shenmei.data.common.enums.BusinessType;
 import com.shenmei.data.common.utils.poi.ExcelUtil;
+import com.shenmei.data.sse.dto.ModelDo;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -72,7 +73,7 @@ public class SseModelController extends BaseController {
     @PreAuthorize("@ss.hasPermi('sse:model:add')")
     @Log(title = "数据模型", businessType = BusinessType.INSERT)
     @PostMapping
-    public AjaxResult add(@RequestBody SseModel sseModel) {
+    public AjaxResult add(@RequestBody ModelDo sseModel) {
         return toAjax(sseModelService.insertSseModel(sseModel));
     }
 
@@ -96,7 +97,7 @@ public class SseModelController extends BaseController {
         return toAjax(sseModelService.deleteSseModelByModelIds(modelIds));
     }
 
-    @PreAuthorize("@ss.hasPermi('sse:model:add')")
+    @PreAuthorize("@ss.hasPermi('sse:model:addShow')")
     @GetMapping("addShow")
     public AjaxResult addShow() {
         return success(sseModelService.getParamList());

@@ -58,4 +58,6 @@ public interface SseModelParamMapper
      * @return 结果
      */
     public int deleteSseModelParamByIds(Long[] ids);
+
+    public int deleteSseModelParamByModelId(String modelId);
 }

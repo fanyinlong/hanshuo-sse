@@ -43,7 +43,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         where model_id = #{modelId}
     </select>
 
-    <insert id="insertSseModel" parameterType="SseModel">
+    <insert id="insertSseModel" parameterType="SseModel" useGeneratedKeys="true" keyProperty="modelId">
         insert into sse_model
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="modelId != null">model_id,</if>

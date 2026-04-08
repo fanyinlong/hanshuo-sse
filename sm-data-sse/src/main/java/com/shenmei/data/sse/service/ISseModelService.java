@@ -35,7 +35,7 @@ public interface ISseModelService
      * @param sseModel 数据模型
      * @return 结果
      */
-    public int insertSseModel(SseModel sseModel);
+    public int insertSseModel(ModelDo sseModel);
 
     /**
      * 修改数据模型

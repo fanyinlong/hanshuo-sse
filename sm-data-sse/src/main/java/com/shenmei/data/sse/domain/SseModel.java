@@ -17,7 +17,7 @@ public class SseModel extends BaseEntity
     private static final long serialVersionUID = 1L;
 
     /** 数据模型编号:S1,S2...S12 */
-    private String modelId;
+    private int modelId;
 
     /** 数据模型名称 */
     @Excel(name = "数据模型名称")
@@ -50,12 +50,12 @@ public class SseModel extends BaseEntity
     @Excel(name = "业务类型:竞价,期权,债券")
     private String businessType;
 
-    public void setModelId(String modelId) 
+    public void setModelId(int modelId)
     {
         this.modelId = modelId;
     }
 
-    public String getModelId() 
+    public int getModelId()
     {
         return modelId;
     }

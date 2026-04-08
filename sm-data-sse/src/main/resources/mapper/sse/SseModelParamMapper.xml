@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.shenmei.data.sse.mapper.SseModelParamMapper">
+    
+    <resultMap type="SseModelParam" id="SseModelParamResult">
+        <result property="id"    column="id"    />
+        <result property="modelId"    column="model_id"    />
+        <result property="paramId"    column="param_id"    />
+        <result property="isRequired"    column="is_required"    />
+        <result property="recommendMin"    column="recommend_min"    />
+        <result property="recommendMax"    column="recommend_max"    />
+        <result property="recommendValue"    column="recommend_value"    />
+        <result property="displayOrder"    column="display_order"    />
+        <result property="dependencyRule"    column="dependency_rule"    />
+        <result property="status"    column="status"    />
+        <result property="delFlag"    column="del_flag"    />
+        <result property="createBy"    column="create_by"    />
+        <result property="createTime"    column="create_time"    />
+        <result property="updateBy"    column="update_by"    />
+        <result property="updateTime"    column="update_time"    />
+        <result property="remark"    column="remark"    />
+    </resultMap>
+
+    <sql id="selectSseModelParamVo">
+        select id, model_id, param_id, is_required, recommend_min, recommend_max, recommend_value, display_order, dependency_rule, status, del_flag, create_by, create_time, update_by, update_time, remark from sse_model_param
+    </sql>
+
+    <select id="selectSseModelParamList" parameterType="SseModelParam" resultMap="SseModelParamResult">
+        <include refid="selectSseModelParamVo"/>
+        <where>  
+            <if test="modelId != null  and modelId != ''"> and model_id = #{modelId}</if>
+            <if test="paramId != null  and paramId != ''"> and param_id = #{paramId}</if>
+            <if test="isRequired != null  and isRequired != ''"> and is_required = #{isRequired}</if>
+            <if test="recommendMin != null  and recommendMin != ''"> and recommend_min = #{recommendMin}</if>
+            <if test="recommendMax != null  and recommendMax != ''"> and recommend_max = #{recommendMax}</if>
+            <if test="recommendValue != null  and recommendValue != ''"> and recommend_value = #{recommendValue}</if>
+            <if test="displayOrder != null "> and display_order = #{displayOrder}</if>
+            <if test="dependencyRule != null  and dependencyRule != ''"> and dependency_rule = #{dependencyRule}</if>
+            <if test="status != null  and status != ''"> and status = #{status}</if>
+        </where>
+    </select>
+    
+    <select id="selectSseModelParamById" parameterType="Long" resultMap="SseModelParamResult">
+        <include refid="selectSseModelParamVo"/>
+        where id = #{id}
+    </select>
+
+    <insert id="insertSseModelParam" parameterType="SseModelParam" useGeneratedKeys="true" keyProperty="id">
+        insert into sse_model_param
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="modelId != null and modelId != ''">model_id,</if>
+            <if test="paramId != null and paramId != ''">param_id,</if>
+            <if test="isRequired != null">is_required,</if>
+            <if test="recommendMin != null">recommend_min,</if>
+            <if test="recommendMax != null">recommend_max,</if>
+            <if test="recommendValue != null">recommend_value,</if>
+            <if test="displayOrder != null">display_order,</if>
+            <if test="dependencyRule != null">dependency_rule,</if>
+            <if test="status != null">status,</if>
+            <if test="delFlag != null">del_flag,</if>
+            <if test="createBy != null">create_by,</if>
+            <if test="createTime != null">create_time,</if>
+            <if test="updateBy != null">update_by,</if>
+            <if test="updateTime != null">update_time,</if>
+            <if test="remark != null">remark,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="modelId != null and modelId != ''">#{modelId},</if>
+            <if test="paramId != null and paramId != ''">#{paramId},</if>
+            <if test="isRequired != null">#{isRequired},</if>
+            <if test="recommendMin != null">#{recommendMin},</if>
+            <if test="recommendMax != null">#{recommendMax},</if>
+            <if test="recommendValue != null">#{recommendValue},</if>
+            <if test="displayOrder != null">#{displayOrder},</if>
+            <if test="dependencyRule != null">#{dependencyRule},</if>
+            <if test="status != null">#{status},</if>
+            <if test="delFlag != null">#{delFlag},</if>
+            <if test="createBy != null">#{createBy},</if>
+            <if test="createTime != null">#{createTime},</if>
+            <if test="updateBy != null">#{updateBy},</if>
+            <if test="updateTime != null">#{updateTime},</if>
+            <if test="remark != null">#{remark},</if>
+         </trim>
+    </insert>
+
+    <update id="updateSseModelParam" parameterType="SseModelParam">
+        update sse_model_param
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="modelId != null and modelId != ''">model_id = #{modelId},</if>
+            <if test="paramId != null and paramId != ''">param_id = #{paramId},</if>
+            <if test="isRequired != null">is_required = #{isRequired},</if>
+            <if test="recommendMin != null">recommend_min = #{recommendMin},</if>
+            <if test="recommendMax != null">recommend_max = #{recommendMax},</if>
+            <if test="recommendValue != null">recommend_value = #{recommendValue},</if>
+            <if test="displayOrder != null">display_order = #{displayOrder},</if>
+            <if test="dependencyRule != null">dependency_rule = #{dependencyRule},</if>
+            <if test="status != null">status = #{status},</if>
+            <if test="delFlag != null">del_flag = #{delFlag},</if>
+            <if test="createBy != null">create_by = #{createBy},</if>
+            <if test="createTime != null">create_time = #{createTime},</if>
+            <if test="updateBy != null">update_by = #{updateBy},</if>
+            <if test="updateTime != null">update_time = #{updateTime},</if>
+            <if test="remark != null">remark = #{remark},</if>
+        </trim>
+        where id = #{id}
+    </update>
+
+    <delete id="deleteSseModelParamById" parameterType="Long">
+        delete from sse_model_param where id = #{id}
+    </delete>
+
+    <delete id="deleteSseModelParamByIds" parameterType="String">
+        delete from sse_model_param where id in 
+        <foreach item="id" collection="array" open="(" separator="," close=")">
+            #{id}
+        </foreach>
+    </delete>
+</mapper>

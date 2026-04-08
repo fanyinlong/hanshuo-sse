@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.shenmei.data.sse.mapper.SseParamMapper">
+    
+    <resultMap type="SseParam" id="SseParamResult">
+        <result property="paramId"    column="param_id"    />
+        <result property="paramName"    column="param_name"    />
+        <result property="paramCategory"    column="param_category"    />
+        <result property="dataType"    column="data_type"    />
+        <result property="defaultValue"    column="default_value"    />
+        <result property="valueUnit"    column="value_unit"    />
+        <result property="description"    column="description"    />
+        <result property="constraintRule"    column="constraint_rule"    />
+        <result property="status"    column="status"    />
+        <result property="delFlag"    column="del_flag"    />
+        <result property="createBy"    column="create_by"    />
+        <result property="createTime"    column="create_time"    />
+        <result property="updateBy"    column="update_by"    />
+        <result property="updateTime"    column="update_time"    />
+        <result property="remark"    column="remark"    />
+    </resultMap>
+
+    <sql id="selectSseParamVo">
+        select param_id, param_name, param_category, data_type, default_value, value_unit, description, constraint_rule, status, del_flag, create_by, create_time, update_by, update_time, remark from sse_param
+    </sql>
+
+    <select id="selectSseParamList" parameterType="SseParam" resultMap="SseParamResult">
+        <include refid="selectSseParamVo"/>
+        <where>  
+            <if test="paramName != null  and paramName != ''"> and param_name like concat('%', #{paramName}, '%')</if>
+            <if test="paramCategory != null  and paramCategory != ''"> and param_category = #{paramCategory}</if>
+            <if test="dataType != null  and dataType != ''"> and data_type = #{dataType}</if>
+            <if test="defaultValue != null  and defaultValue != ''"> and default_value = #{defaultValue}</if>
+            <if test="valueUnit != null  and valueUnit != ''"> and value_unit = #{valueUnit}</if>
+            <if test="description != null  and description != ''"> and description = #{description}</if>
+            <if test="constraintRule != null  and constraintRule != ''"> and constraint_rule = #{constraintRule}</if>
+            <if test="status != null  and status != ''"> and status = #{status}</if>
+        </where>
+    </select>
+    
+    <select id="selectSseParamByParamId" parameterType="String" resultMap="SseParamResult">
+        <include refid="selectSseParamVo"/>
+        where param_id = #{paramId}
+    </select>
+
+    <insert id="insertSseParam" parameterType="SseParam">
+        insert into sse_param
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="paramId != null">param_id,</if>
+            <if test="paramName != null and paramName != ''">param_name,</if>
+            <if test="paramCategory != null and paramCategory != ''">param_category,</if>
+            <if test="dataType != null and dataType != ''">data_type,</if>
+            <if test="defaultValue != null">default_value,</if>
+            <if test="valueUnit != null">value_unit,</if>
+            <if test="description != null">description,</if>
+            <if test="constraintRule != null">constraint_rule,</if>
+            <if test="status != null">status,</if>
+            <if test="delFlag != null">del_flag,</if>
+            <if test="createBy != null">create_by,</if>
+            <if test="createTime != null">create_time,</if>
+            <if test="updateBy != null">update_by,</if>
+            <if test="updateTime != null">update_time,</if>
+            <if test="remark != null">remark,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="paramId != null">#{paramId},</if>
+            <if test="paramName != null and paramName != ''">#{paramName},</if>
+            <if test="paramCategory != null and paramCategory != ''">#{paramCategory},</if>
+            <if test="dataType != null and dataType != ''">#{dataType},</if>
+            <if test="defaultValue != null">#{defaultValue},</if>
+            <if test="valueUnit != null">#{valueUnit},</if>
+            <if test="description != null">#{description},</if>
+            <if test="constraintRule != null">#{constraintRule},</if>
+            <if test="status != null">#{status},</if>
+            <if test="delFlag != null">#{delFlag},</if>
+            <if test="createBy != null">#{createBy},</if>
+            <if test="createTime != null">#{createTime},</if>
+            <if test="updateBy != null">#{updateBy},</if>
+            <if test="updateTime != null">#{updateTime},</if>
+            <if test="remark != null">#{remark},</if>
+         </trim>
+    </insert>
+
+    <update id="updateSseParam" parameterType="SseParam">
+        update sse_param
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="paramName != null and paramName != ''">param_name = #{paramName},</if>
+            <if test="paramCategory != null and paramCategory != ''">param_category = #{paramCategory},</if>
+            <if test="dataType != null and dataType != ''">data_type = #{dataType},</if>
+            <if test="defaultValue != null">default_value = #{defaultValue},</if>
+            <if test="valueUnit != null">value_unit = #{valueUnit},</if>
+            <if test="description != null">description = #{description},</if>
+            <if test="constraintRule != null">constraint_rule = #{constraintRule},</if>
+            <if test="status != null">status = #{status},</if>
+            <if test="delFlag != null">del_flag = #{delFlag},</if>
+            <if test="createBy != null">create_by = #{createBy},</if>
+            <if test="createTime != null">create_time = #{createTime},</if>
+            <if test="updateBy != null">update_by = #{updateBy},</if>
+            <if test="updateTime != null">update_time = #{updateTime},</if>
+            <if test="remark != null">remark = #{remark},</if>
+        </trim>
+        where param_id = #{paramId}
+    </update>
+
+    <delete id="deleteSseParamByParamId" parameterType="String">
+        delete from sse_param where param_id = #{paramId}
+    </delete>
+
+    <delete id="deleteSseParamByParamIds" parameterType="String">
+        delete from sse_param where param_id in 
+        <foreach item="paramId" collection="array" open="(" separator="," close=")">
+            #{paramId}
+        </foreach>
+    </delete>
+</mapper>

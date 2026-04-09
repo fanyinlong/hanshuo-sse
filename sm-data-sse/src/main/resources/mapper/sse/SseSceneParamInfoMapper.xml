@@ -79,4 +79,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
             #{paramInfoId}
         </foreach>
     </delete>
+
+    <delete id="deleteSseSceneParamInfoBySceneIds" parameterType="Long">
+            delete from sse_scene_param_info where scene_id in
+        <foreach item="sceneId" collection="array" open="(" separator="," close=")">
+            #{sceneId}
+        </foreach>
+    </delete>
 </mapper>

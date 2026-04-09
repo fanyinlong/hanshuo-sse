@@ -58,4 +58,6 @@ public interface SseSceneParamInfoMapper
      * @return 结果
      */
     public int deleteSseSceneParamInfoByParamInfoIds(Long[] paramInfoIds);
+
+    public int deleteSseSceneParamInfoBySceneIds(Long [] sceneIds);
 }

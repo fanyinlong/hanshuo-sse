@@ -22,10 +22,18 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 
     <select id="selectSseSceneList" parameterType="SseScene" resultMap="SseSceneResult">
         <include refid="selectSseSceneVo"/>
-        <where>  
+        <where>
+            1=1
             <if test="sceneName != null  and sceneName != ''"> and scene_name like concat('%', #{sceneName}, '%')</if>
             <if test="modelId != null  and modelId != ''"> and model_id = #{modelId}</if>
+            <if test="params.beginTime != null and params.beginTime != ''"><!-- 开始时间检索 -->
+                AND create_time &gt;= #{params.beginTime}
+            </if>
+            <if test="params.endTime != null and params.endTime != ''"><!-- 结束时间检索 -->
+                AND create_time &lt;= #{params.endTime}
+            </if>
         </where>
+           AND del_flag = 0
     </select>
     
     <select id="selectSseSceneBySceneId" parameterType="Long" resultMap="SseSceneResult">
@@ -77,7 +85,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
     </delete>
 
     <delete id="deleteSseSceneBySceneIds" parameterType="String">
-        delete from sse_scene where scene_id in 
+        update sse_scene set del_flag = 1  where scene_id in
         <foreach item="sceneId" collection="array" open="(" separator="," close=")">
             #{sceneId}
         </foreach>

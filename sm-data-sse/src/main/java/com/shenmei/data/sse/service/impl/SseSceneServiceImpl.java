@@ -3,6 +3,7 @@ package com.shenmei.data.sse.service.impl;
 import java.util.List;
 
 import com.shenmei.data.common.utils.DateUtils;
+import com.shenmei.data.sse.mapper.SseSceneParamInfoMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.shenmei.data.sse.mapper.SseSceneMapper;
@@ -20,6 +21,9 @@ public class SseSceneServiceImpl implements ISseSceneService
 {
     @Autowired
     private SseSceneMapper sseSceneMapper;
+
+    @Autowired
+    private SseSceneParamInfoMapper sseSceneParamInfoMapper;
 
     /**
      * 查询测试场景
@@ -80,7 +84,10 @@ public class SseSceneServiceImpl implements ISseSceneService
     @Override
     public int deleteSseSceneBySceneIds(Long[] sceneIds)
     {
-        return sseSceneMapper.deleteSseSceneBySceneIds(sceneIds);
+        sseSceneMapper.deleteSseSceneBySceneIds(sceneIds);
+
+        return sseSceneParamInfoMapper.deleteSseSceneParamInfoBySceneIds(sceneIds);
+
     }
 
     /**
@@ -92,6 +99,8 @@ public class SseSceneServiceImpl implements ISseSceneService
     @Override
     public int deleteSseSceneBySceneId(Long sceneId)
     {
+
+
         return sseSceneMapper.deleteSseSceneBySceneId(sceneId);
     }
 }

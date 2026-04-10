@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.shenmei.data.sse.mapper.SseSceneParamInfoMapper">
+    
+    <resultMap type="SseSceneParamInfo" id="SseSceneParamInfoResult">
+        <result property="paramInfoId"    column="param_info_id"    />
+        <result property="sceneId"    column="scene_id"    />
+        <result property="paramId"    column="param_id"    />
+        <result property="paramValue"    column="param_value"    />
+        <result property="createBy"    column="create_by"    />
+        <result property="createTime"    column="create_time"    />
+        <result property="updateBy"    column="update_by"    />
+        <result property="updateTime"    column="update_time"    />
+    </resultMap>
+
+    <sql id="selectSseSceneParamInfoVo">
+        select param_info_id, scene_id, param_id, param_value, create_by, create_time, update_by, update_time from sse_scene_param_info
+    </sql>
+
+    <select id="selectSseSceneParamInfoList" parameterType="SseSceneParamInfo" resultMap="SseSceneParamInfoResult">
+        <include refid="selectSseSceneParamInfoVo"/>
+        <where>  
+            <if test="sceneId != null "> and scene_id = #{sceneId}</if>
+            <if test="paramId != null  and paramId != ''"> and param_id = #{paramId}</if>
+            <if test="paramValue != null  and paramValue != ''"> and param_value = #{paramValue}</if>
+        </where>
+    </select>
+    
+    <select id="selectSseSceneParamInfoByParamInfoId" parameterType="Long" resultMap="SseSceneParamInfoResult">
+        <include refid="selectSseSceneParamInfoVo"/>
+        where param_info_id = #{paramInfoId}
+    </select>
+
+    <insert id="insertSseSceneParamInfo" parameterType="SseSceneParamInfo" useGeneratedKeys="true" keyProperty="paramInfoId">
+        insert into sse_scene_param_info
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="sceneId != null">scene_id,</if>
+            <if test="paramId != null and paramId != ''">param_id,</if>
+            <if test="paramValue != null and paramValue != ''">param_value,</if>
+            <if test="createBy != null">create_by,</if>
+            <if test="createTime != null">create_time,</if>
+            <if test="updateBy != null">update_by,</if>
+            <if test="updateTime != null">update_time,</if>
+         </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="sceneId != null">#{sceneId},</if>
+            <if test="paramId != null and paramId != ''">#{paramId},</if>
+            <if test="paramValue != null and paramValue != ''">#{paramValue},</if>
+            <if test="createBy != null">#{createBy},</if>
+            <if test="createTime != null">#{createTime},</if>
+            <if test="updateBy != null">#{updateBy},</if>
+            <if test="updateTime != null">#{updateTime},</if>
+         </trim>
+    </insert>
+
+    <update id="updateSseSceneParamInfo" parameterType="SseSceneParamInfo">
+        update sse_scene_param_info
+        <trim prefix="SET" suffixOverrides=",">
+            <if test="sceneId != null">scene_id = #{sceneId},</if>
+            <if test="paramId != null and paramId != ''">param_id = #{paramId},</if>
+            <if test="paramValue != null and paramValue != ''">param_value = #{paramValue},</if>
+            <if test="createBy != null">create_by = #{createBy},</if>
+            <if test="createTime != null">create_time = #{createTime},</if>
+            <if test="updateBy != null">update_by = #{updateBy},</if>
+            <if test="updateTime != null">update_time = #{updateTime},</if>
+        </trim>
+        where param_info_id = #{paramInfoId}
+    </update>
+
+    <delete id="deleteSseSceneParamInfoByParamInfoId" parameterType="Long">
+        delete from sse_scene_param_info where param_info_id = #{paramInfoId}
+    </delete>
+
+    <delete id="deleteSseSceneParamInfoByParamInfoIds" parameterType="String">
+        delete from sse_scene_param_info where param_info_id in 
+        <foreach item="paramInfoId" collection="array" open="(" separator="," close=")">
+            #{paramInfoId}
+        </foreach>
+    </delete>
+
+    <delete id="deleteSseSceneParamInfoBySceneIds" parameterType="Long">
+            delete from sse_scene_param_info where scene_id in
+        <foreach item="sceneId" collection="array" open="(" separator="," close=")">
+            #{sceneId}
+        </foreach>
+    </delete>
+</mapper>

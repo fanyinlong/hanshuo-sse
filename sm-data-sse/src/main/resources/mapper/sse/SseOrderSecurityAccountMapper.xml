@@ -75,7 +75,7 @@
     </delete>
 
     <insert id="batchInsertSseOrderSecurityAccount" parameterType="java.util.List" useGeneratedKeys="true" keyProperty="pkId">
-        INSERT INTO sse_order_security_account (
+        INSERT IGNORE INTO sse_order_security_account (
         rule_id,
         security_id,
         account_id,

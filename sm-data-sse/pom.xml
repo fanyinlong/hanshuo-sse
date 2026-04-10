@@ -64,6 +64,13 @@
             <artifactId>mssql-jdbc</artifactId>
             <version>9.2.1.jre8</version> <!-- 根据你的Java版本选择合适的版本 -->
         </dependency>
+
+
+        <!-- RabbitMQ依赖 -->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-amqp</artifactId>
+        </dependency>
     </dependencies>
 
 

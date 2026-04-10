@@ -1,5 +1,6 @@
 package com.shenmei.data.sse.service;
 
+import com.shenmei.data.sse.domain.SseOrderInfo;
 import com.shenmei.data.sse.domain.SseServerDistributionRecord;
 import com.shenmei.data.sse.domain.SseServerInfo;
 import com.shenmei.data.sse.domain.SseServerRule;
@@ -38,5 +39,8 @@ public interface ISseServerRuleService {
     public int updateSseServerRule(SseServerRule sseServerRule) throws Exception;
 
 
-    public  int orderDataDistribution(SseServerDistributionRecord sseServerDistributionRecord);
+    public  void orderDataDistribution(SseServerDistributionRecord sseServerDistributionRecord);
+
+    void orderDataDistributionWithOrders(SseServerDistributionRecord record, List<SseOrderInfo> orders);
+
 }

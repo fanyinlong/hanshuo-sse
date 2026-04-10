@@ -9,7 +9,9 @@ import com.shenmei.data.common.utils.spring.SpringUtils;
 import com.shenmei.data.sse.constant.MatchTypeEnum;
 import com.shenmei.data.sse.dataservice.ruledata.CreateOrderInfoService;
 import com.shenmei.data.sse.domain.SseRuleExecuteRecord;
+import com.shenmei.data.sse.dto.OrderCompletedMessage;
 import com.shenmei.data.sse.mapper.SseRuleExecuteRecordMapper;
+import com.shenmei.data.sse.mq.OrderCompletedProducer;
 import com.shenmei.data.sse.service.ISseDataRuleService;
 import com.shenmei.data.sse.service.ISseRuleExecuteRecordService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,6 +45,9 @@ public class SseRuleExecuteRecordServiceImpl implements ISseRuleExecuteRecordSer
 
     @Autowired
     RedisCache redisCache;
+
+    @Resource
+    private OrderCompletedProducer orderCompletedProducer;
     /**
      * 查询规则执行记录
      *
@@ -113,6 +118,20 @@ public class SseRuleExecuteRecordServiceImpl implements ISseRuleExecuteRecordSer
         executorService.execute(() -> {
             try {
                 createOrderInfoService.createOrderInfo(sseRuleExecuteRecord);
+                Long ruleId = sseRuleExecuteRecord.getRuleId();
+                Long executeRecordId = sseRuleExecuteRecord.getPkId();
+                Long totalOrderCount = sseRuleExecuteRecord.getOrderNumber();
+                String executeUser = sseRuleExecuteRecord.getExecuteUser();
+
+                OrderCompletedMessage message = new OrderCompletedMessage(
+                        ruleId,
+                        executeRecordId,
+                        totalOrderCount,
+                        executeUser,
+                        System.currentTimeMillis()
+                );
+
+                orderCompletedProducer.sendOrderCompletedMessage(message);
             } catch (Exception e) {
                 // 记录异常日志
                 e.printStackTrace();
